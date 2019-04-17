@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
 
     if (!this._service.checkToken()) this._router.navigate(['pages/umac/login']);
     this.userEnv = JSON.parse(localStorage.getItem("user"));
+    if ((this.userEnv == null) || (typeof(this.userEnv) == 'undefined')) this.userEnv = { username: "" };
     this.tokenEnv = localStorage.getItem("token");
     this.user = { name: this.userEnv.username, picture: 'assets/images/ucare-admin.png' };
     //this.userService.getUsers().subscribe((users: any) => this.user = users.admin);

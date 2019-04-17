@@ -5,7 +5,7 @@ import { ApiService } from '../services/helper/api.service';
 import { Routes, RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { environment } from './../../environments/environment';
 
-import { ALL_MENU_ITEMS, OPERATOR_MENU_ITEMS, PUBLIC_MENU_ITEMS } from './pages-menu';
+import { ALL_MENU_ITEMS } from './pages-menu';
 
 
 @Component({
@@ -38,8 +38,8 @@ export class PagesComponent implements OnInit {
 		{
 			case "administrator": this.menu = ALL_MENU_ITEMS; break;
 			case "authenticated": this.menu = ALL_MENU_ITEMS; break;
-			case "public": this.menu = PUBLIC_MENU_ITEMS; break;
-			case "consumerlist": this.menu = OPERATOR_MENU_ITEMS; break;
+			case "public": this.menu = ALL_MENU_ITEMS; break;
+			case "consumerlist": this.menu = ALL_MENU_ITEMS; break;
 			default: this.menu = [];
 		}
 		/*

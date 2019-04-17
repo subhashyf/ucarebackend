@@ -2,7 +2,7 @@
 # [3.1.0](https://github.com/akveo/ngx-admin/compare/v3.0.0...v3.1.0) (2019-01-23)
 
 
-### Bug Fixes Custom
+### Bug Fixes
 
 * **datepicker:** fix datepicker arrow style ([#1925](https://github.com/akveo/ngx-admin/issues/1925)) ([a878197](https://github.com/akveo/ngx-admin/commit/a878197))
 * **toggle-settings-button:** position while search open ([#1993](https://github.com/akveo/ngx-admin/issues/1993)) ([f17aa32](https://github.com/akveo/ngx-admin/commit/f17aa32))

@@ -7,22 +7,22 @@ export const ALL_MENU_ITEMS: NbMenuItem[] = [
   },
   {
     "title": "Consumer",
-    link: "/pages/consumer/manage"
+    link: "/pages/consumer/manage/consumer"
   },
   {
     "title": "Customer",
-    link: "/pages/customer/manage"
+    link: "/pages/consumer/manage/customer"
   },
   {
     "title": "Provider",
-    link: "/pages/provider/manage"
+    link: "/pages/consumer/manage/provider"
   },
   {
     "title": "Device",
     children: [
       {
         "title": "Manage",
-        link: "/pages/device/manage"
+        link: "/pages/consumer/manage/device"
       },
       {
         "title": "Inventory",
@@ -35,7 +35,7 @@ export const ALL_MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         "title": "Manage",
-        link: "/pages/service/manage"
+        link: "/pages/consumer/manage/service"
       },
       {
         "title": "Inventory",
@@ -45,15 +45,15 @@ export const ALL_MENU_ITEMS: NbMenuItem[] = [
   },
   {
     "title": "Package",
-    link: "/pages/package/manage"
+    link: "/pages/consumer/manage/package"
   },
   {
     "title": "Kit",
-    link: "/pages/kit/manage"
+    link: "/pages/kit/manage/kit"
   },
   {
     "title": "Order",
-    link: "/pages/order/manage"
+    link: "/pages/consumer/manage/transaction"
   },
   {
     "title": "Help Desk",
@@ -111,116 +111,8 @@ export const ALL_MENU_ITEMS: NbMenuItem[] = [
   }
 ];
 
-export const OPERATOR_MENU_ITEMS: NbMenuItem[] = [
-  {
-    "title": "Dashboard",
-    "link": "/pages/fulldash"
-  },
-  {
-    "title": "Consumer",
-    link: "/pages/consumer/manage"
-  },
-  {
-    "title": "Customer",
-    link: "/pages/customer/manage"
-  },
-  {
-    "title": "Provider",
-    link: "/pages/provider/manage"
-  },
-  {
-    "title": "Device",
-    children: [
-      {
-        "title": "Manage",
-        link: "/pages/device/manage"
-      },
-      {
-        "title": "Inventory",
-        link: "/pages/device/inventory"
-      }
-    ]
-  },
-  {
-    "title": "Service",
-    children: [
-      {
-        "title": "Manage",
-        link: "/pages/service/manage"
-      },
-      {
-        "title": "Inventory",
-        link: "/pages/service/inventory"
-      }
-    ]
-  }
-];
-
-export const PUBLIC_MENU_ITEMS: NbMenuItem[] = [
-  {
-    "title": "Dashboard",
-    "link": "/pages/fulldash"
-  },
-  {
-    "title": "Help Desk",
-    children: [
-      {
-        "title": "SOS",
-        link: "/pages/helpdesk/sos/manage"
-      },
-      {
-        "title": "Safe Me",
-        link: "/pages/helpdesk/safeme/manage"
-      },
-      {
-        "title": "Help Me",
-        link: "/pages/helpdesk/helpme/manage"
-      },
-      {
-        "title": "Book A Cab",
-        link: "/pages/helpdesk/bookacab/manage"
-      },
-      {
-        "title": "Doctor Appointment",
-        link: "/pages/helpdesk/doctorappointment/manage"
-      },
-      {
-        "title": "Diagnostic Appointment",
-        link: "/pages/helpdesk/diagnosticappointment/manage"
-      }
-    ]
-  },
-  {
-    "title": "Health Vault",
-    children: [
-      {
-        "title": "ECG",
-        link: "/pages/healthvault/report/ecg"
-      },
-      {
-        "title": "Sleep",
-        link: "/pages/helpdesk/report/sleep"
-      },
-      {
-        "title": "Stress",
-        link: "/pages/helpdesk/report/stress"
-      },
-      {
-        "title": "Step",
-        link: "/pages/helpdesk/report/step"
-      },
-      {
-        "title": "Calorie",
-        link: "/pages/helpdesk/report/calorie"
-      }
-    ]
-  }
-];
-
 
 /*
-
-
 
 export const DEFAULT_MENU_ITEMS: NbMenuItem[] = [
   {

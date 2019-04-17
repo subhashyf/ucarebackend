@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate {
 	if ((permission == null) || (typeof(permission) == 'undefined')) permission = { umac: { find: { enabled : true } } };
 	for (var module in permission) {
 	    if (permission.hasOwnProperty(module)) {
-	        if (module.search((state.url.split('/')[2])) >= 0)
+	        if (module.search((state.url.split('/')[4])) >= 0)
 	        {
 	        	return permission[module]['find']['enabled'];
 	        }

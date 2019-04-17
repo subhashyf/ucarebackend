@@ -19,7 +19,7 @@
     padding-bottom: 0;
   }
 
-  input.ng-dirty.ng-invalid.ng-touched, select.ng-dirty.ng-invalid.ng-touched { border-color: #F00; }
+  input.ng-dirty.ng-invalid.ng-touched { border-color: #F00; }
 
   div.alert.alert-danger {
     min-width: inherit !important;
@@ -30,8 +30,16 @@
     border-color: #f5c6cb !important;
   }
 
-  th, a.btn, button.btn, input.btn, a > i.fa, select, input[type=checkbox] { cursor: pointer !important; }
+  select { cursor: pointer !important; }
+
+  input[type=checkbox] { cursor: pointer !important; }
+
+  a > i.fa { cursor: pointer !important; }
+
+  a.btn, button.btn, input.btn { cursor: pointer !important; }
 
   .disabled:hover { cursor: not-allowed !important; }
 
+  th { cursor: pointer; }
+  
 }

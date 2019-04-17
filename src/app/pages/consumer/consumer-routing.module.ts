@@ -16,20 +16,20 @@ const routes: Routes = [{
     component: ConsumerDashboardComponent,
   },
   {
-    path: 'manage',
+    path: 'manage/:model',
     component: ConsumerManageComponent,
   },
   {
-    path: 'report',
+    path: 'report/:model',
     component: ConsumerReportComponent,
   },
   {
-    path: 'manage/edit/:id',
+    path: 'manage/edit/:model/:id',
     component: ConsumerEditComponent,
   },
   {
-    path: 'manage/add',
-    component: ConsumerAddComponent,
+    path: 'manage/add/:model',
+    component: ConsumerEditComponent,
   }],
 }];
 

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { ApiService } from '../../../services/helper/api.service';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Routes, RouterModule, Router, ActivatedRoute } from '@angular/router';
+
+import { ModalComponent } from './modal/modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ExcelService } from './../excel.service';
+import * as XLSX from 'xlsx';
 
 @Component({
 selector: 'ngx-manage',
@@ -10,8 +15,11 @@ selector: 'ngx-manage',
 })
 
 export class ConsumerManageComponent implements OnInit {
+
   
-  public loading;
+   public loading;
+
+  public modelName;
 
   public consumerList;
   
@@ -20,6 +28,21 @@ export class ConsumerManageComponent implements OnInit {
   public showingConsumerRecords;
   
   public lastConsumerPage;
+
+  public apiURL;
+  public orderByState = "ASC";
+  public totalPages = 0;
+  public totalRecordCount = 0;
+  public tabShowRecordCount = 0;
+  public tabShowRecordPerPageCount = 10;
+  public tabCurrentPage = 1;
+  public searchString = "";
+  public tabListKey = [];
+  public tabData;
+  public deleteRecordIds = [];
+  public checkAll = "";
+  public recordRow = [];
+  public modelUrl;
 
   dtPageSizes = [
     { 'value' : 1, 'text' : '1' },
@@ -36,9 +59,10 @@ export class ConsumerManageComponent implements OnInit {
   ];
   
   public consumerPages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   
   public getConsumerFormData = {
-    'modelUrl': 'consumers',
+    'modelUrl': this.modelName,
     'searchText': '',
     'orderColumn': 'id',
     'orderType': 'DESC',
@@ -46,139 +70,184 @@ export class ConsumerManageComponent implements OnInit {
     'pageSize': 5,
   };
 
-  constructor(private _http: HttpClient, private _service: ApiService, private modalService: NgbModal) { }
 
-  ngOnInit() { this.refreshThisPage(); }
+  constructor(private excelService: ExcelService, private modalService: NgbModal, private _http: HttpClient, private _service: ApiService, private route: ActivatedRoute) { }
 
-  refreshThisPage() { this.getConsumerData(); }
-
-  goBackScript(event)
-  {
-    event.preventDefault();
-    this.loading = true;
-    window.history.back();
+  ngOnInit() { 
+    this.route.params.subscribe(params => {
+        this.modelUrl = (params['model']);
+        this.modelName = (params['model'])+"s";
+        this.refreshThisPage();
+    });
   }
 
-  toggleCheckBoxes(event) {
+
+  refreshThisPage() { 
+    this.apiURL;
+    this.orderByState = "ASC";
+    this.totalPages = 0;
+    this.totalRecordCount = 0;
+    this.tabShowRecordCount = 0;
+    this.tabShowRecordPerPageCount = 10;
+    this.tabCurrentPage = 1;
+    this.searchString = "";
+    this.tabListKey = [];
+    this.tabData = {};
+    this.deleteRecordIds = [];
+    this.checkAll = "";
+    this.recordRow = [];
+    this.getTableData(); 
+  }
+
+  //Get relation table data
+   getTableData(){
+    var url = this.modelName + "?_start=" + ((this.tabCurrentPage - 1) * (this.tabShowRecordPerPageCount)) +"&_limit=" + this.tabShowRecordPerPageCount;
+    console.log(this.searchString);
+    if(this.searchString){
+      url +=  "&_q=" + this.searchString;
+    }
+    this._service.getFind(url).subscribe(data => {
+      var keysdata = Object.keys(data[0]);
+      for(var i = 0;i<keysdata.length;i++) { 
+         this.tabListKey.push(keysdata[i]); 
+      }
+      this.tabData = data;
+      this.tabShowRecordCount = Object.keys(data).length;
+      var counturl = this.modelName + "/count";
+      this._service.getCount(counturl).subscribe(result => {
+        var interData:any;
+        interData = result;
+        this.totalRecordCount = interData;
+        this.totalPages = Math.ceil(this.totalRecordCount / this.tabShowRecordCount);
+      });
+    });
+   }
+
+   filterColumn(event, columnName, orderBystate){
+     console.log(event);
+   }
+   //Get relation table data
+   getSearchStringData(event){
+    var url = this.modelName + "?&_start=" + ((this.tabCurrentPage - 1) * (this.tabShowRecordPerPageCount)) +"&_limit=" + this.tabShowRecordPerPageCount + "&_q=" + this.searchString;
+    console.log(this.searchString);
+    this._service.getFind(url).subscribe(data => {
+      var keysdata = Object.keys(data[0]);
+      for(var i = 0;i<keysdata.length;i++) { 
+         this.tabListKey.push(keysdata[i]); 
+      }
+      this.tabData = data;
+
+      var interData:any;
+      interData = Object.keys(data).length;
+      this.tabShowRecordCount = interData;
+
+      var counturl = this.modelName + "/count";
+      this._service.getCount(counturl).subscribe(result => {
+        var interData:any;
+        interData = result;
+        this.totalRecordCount = interData;
+        this.totalPages = Math.ceil(this.totalRecordCount / this.tabShowRecordCount);
+      });
+    });
+   }
+
+   pageNext(event) {
+      this.loading = true;
+      if (this.tabCurrentPage < this.totalPages) {
+        this.tabCurrentPage++;
+        this.getTableData();
+      }
+     this.loading = false; 
+  }
+  
+  pagePrev(event) {
+    this.loading = true;
+    if (this.tabCurrentPage > 1) {
+      this.tabCurrentPage--;
+      this.getTableData();
+    }
+    this.loading = false;
+  }
+
+  pageChange(event){
+    this.loading = true;
+    if (this.tabCurrentPage < this.totalPages) {
+      this.tabCurrentPage++;
+      this.getTableData();
+    }
+    this.loading = false;
+  }
+
+  pageSizeChange(event){
+    this.loading = true;
+    console.log("GGGG"+ this.tabShowRecordPerPageCount);
+    if (this.tabShowRecordPerPageCount > 0) {
+      this.getTableData();
+    }
+    this.loading = false;
+  }
+
+  serachRecord(event){
+    this.loading = true;
+    console.log("GGGG"+ this.tabShowRecordPerPageCount);
+    if (this.tabShowRecordPerPageCount > 0) {
+      this.getTableData();
+    }
+    this.loading = false;
+  }
+
+  deleteRecord(event, rowId, targetTable)
+   {
+    var deleteurl = targetTable+"/"+rowId;
+    this._service.getDestroy(deleteurl).subscribe(data => {
+      window.location.reload();
+    });
+   }
+
+   deleteMultipleRecords(event, targetTable)
+   {
+    var deleteurl = targetTable+"/deleteall";
+    // this._service.getDestroyAll(deleteurl, this.consumerModelData).subscribe(data => {
+    //   window.location.reload();
+    // });
+   }
+
+   getDeleteRowIds(event, rowId){
+    const arrray = {id : rowId};
+     console.log(this.deleteRecordIds);
+     if(!this.deleteRecordIds.some(result => result.id == rowId)){
+        var interData:any;
+        interData = this.deleteRecordIds;
+        interData.push(arrray);
+        this.deleteRecordIds = interData;
+     }else{
+        var interData:any;
+        interData = this.deleteRecordIds;
+        interData.pop(arrray);
+        this.deleteRecordIds = interData;
+     }
+   }
+
+   toggleCheckBoxes(event) {
     this.loading = true;
     $('.rowChecks').each(function() {
+      var valuee = $(this).val();
+      console.log(valuee);
       $(this).prop('checked', (($('#headCheck').prop('checked')) ? (true) : (false)));
     });
     this.loading = false;
   }
 
-  getConsumerData() {
-    this.loading = true;
-    var hitUrl = this.getConsumerFormData['modelUrl'];
-    hitUrl += "?status_ne=Deleted&_sort=" + (this.getConsumerFormData['orderColumn']) + ":" + (this.getConsumerFormData['orderType']) + "&_start=" + ((this.getConsumerFormData['pageNo'] - 1) * (this.getConsumerFormData['pageSize'])) + "&_limit=" + (this.getConsumerFormData['pageSize']);
-    this._service.getFind(hitUrl).subscribe(data => {
-      this.consumerList = data;
-      this.showingConsumerRecords = this.consumerList.length;
-      
-      hitUrl = this.getConsumerFormData['modelUrl'] + "/count?status_ne=Deleted";
-      this._service.getCount(hitUrl).subscribe(data => {
-        this.totalConsumerRecords = parseFloat(data == null ? "0" : data.toString());
-        this.lastConsumerPage = parseInt((this.totalConsumerRecords % this.showingConsumerRecords == 0) ? (this.totalConsumerRecords/this.showingConsumerRecords).toString() : ((this.totalConsumerRecords/this.showingConsumerRecords) + 1).toString());
-        this.consumerPages = [];
-        for (var i = 1; i <= this.lastConsumerPage; i++) this.consumerPages.push(i);
-        this.loading = false;
-      });
+  showLargeModal() {
+    const activeModal = this.modalService.open(ModalComponent, { size: 'lg', container: 'nb-layout' });
 
-    });
-
+    activeModal.componentInstance.modalHeader = 'Import Consumers';
+    activeModal.componentInstance.modalContent = 'Please select your CSV file';
   }
 
-  deleteConsumerData(id) {
-    this.loading = true;
-    var hitUrl = this.getConsumerFormData['modelUrl'] + "/" + id;
-    this._service.getUpdate(hitUrl, { status : 'Deleted' }).subscribe(data => {
-      this.getConsumerData();
-    });
+  exportToExcel(event, jsonData, excelFileName) {
+    this.excelService.exportAsExcelFile(jsonData, excelFileName);
   }
-
-  filterConsumerColumn(event, id) {
-    this.loading = true;
-    var columnTitle = ($('#' + id).attr('data-columnTitle'));
-    var orderType = ($('#' + id).attr('data-order').toString().toUpperCase());
-    this.getConsumerFormData['orderColumn'] = ($('#' + id).attr('data-columnName'));
-    this.getConsumerFormData['orderType'] = orderType;
-    this.getConsumerFormData['pageNo'] = 1;
-    $('.thChangeIcon').each(function(i, e) {
-      $(this).attr('data-order', 'ASC');
-      $(this).html((($(this).attr('data-columnTitle')) + ' <i class="ion-funnel"></i>'));
-    });
-    this.getConsumerData();
-    if (orderType == 'ASC')
-    {
-      $('#' + id).attr('data-order', 'DESC');
-      $('#' + id).html(columnTitle + ' <i class="ion-chevron-up"></i>');
-    }
-    else
-    {
-      $('#' + id).attr('data-order', 'ASC');
-      $('#' + id).html(columnTitle + ' <i class="ion-chevron-down"></i>');
-    }
-  }
-  
-  navNextConsumerPage(event) {
-    this.loading = true;
-    if (parseInt(this.getConsumerFormData['pageNo'].toString()) < parseInt(this.lastConsumerPage)) this.getConsumerFormData['pageNo'] = (parseInt(this.getConsumerFormData['pageNo'].toString()) + 1);
-    this.getConsumerData();
-  }
-  
-  navPrevConsumerPage(event) {
-    this.loading = true;
-    if (parseInt(this.getConsumerFormData['pageNo'].toString()) > 1) this.getConsumerFormData['pageNo'] = (parseInt(this.getConsumerFormData['pageNo'].toString()) - 1);
-    this.getConsumerData();
-  }
-
-  searchTextChanged(event) { console.log(event.srcElement.value); }
-  
-  consumerPageChange(event) { this.loading = true; this.getConsumerFormData['pageNo'] = parseInt(event.srcElement.value.toString()); this.getConsumerData(); }
-  
-  consumerPageSizeChange(event) { this.loading = true; this.getConsumerFormData['pageNo'] = 1; this.getConsumerFormData['pageSize'] = parseInt(event.srcElement.value.toString()); this.getConsumerData(); }
- 
-  exportConsumers(event) { event.preventDefault(); this.loading = true; alert('exporting ...'); this.loading = false; }
-
-  importConsumers(event) {
-    var modal = `
-    <div class="modal-header">
-      <span>modalHeader</span>
-      <button class="close" aria-label="Close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      modalContent
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-md btn-primary" (click)="closeModal()">Save changes</button>
-    </div>
-  `;
-    const activeModal = this.modalService.open(modal, { size: 'lg', container: 'nb-layout' });
-    activeModal.componentInstance.modalHeader = 'Static modal';
-    activeModal.componentInstance.modalContent = `This is static modal, backdrop click
-                                                    will not close it. Click × or confirmation button to close modal.`;
-  }
-
-  deleteCustomer(event, id) { event.preventDefault(); this.loading = true; if (confirm('are you sure ?')) this.deleteConsumerData(id); this.loading = false; }
-
-  deleteConsumers(event) {
-    event.preventDefault();
-    this.loading = true;
-    if (($('.rowChecks:checked').length) > 0)
-    {
-      var Ids = [];
-      $('.rowChecks:checked').each(function(i, e){ Ids.push($(this).attr('value')); });
-      if (confirm('do you confirm to delete row ids:' + Ids)) for (var i = 0; i < Ids.length; i++) this.deleteConsumerData(Ids[i]);
-      $('#headCheck').prop('checked', false);
-      this.toggleCheckBoxes(null);
-    }
-    else
-    {
-      alert('please select consumer first on page, then try again...');
-      this.loading = false;
-    }
-  }
-
 }
+
+

@@ -1,0 +1,106 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Add Consumer</nb-card-header>
+			<nb-card-body>
+				<div class="">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" name="consumerForm" (ngSubmit)="consumerForm.form.valid && consumerFormSubmit(consumerForm)" #consumerForm="ngForm" novalidate>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Consumer Type</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="consumerType" name="consumerType" autocomplete="off" required="required" placeholder="Consumer Type" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="status" name="status" autocomplete="off" required="required" placeholder="Status" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Height</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="height" name="height" autocomplete="off" required="required" placeholder="Height" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Weight</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="weight" name="weight" autocomplete="off" required="required" placeholder="Weight" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Smoker</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="smoker" name="smoker" autocomplete="off" required="required" placeholder="Smoker" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Alcoholic</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="alcoholic" name="alcoholic" autocomplete="off" required="required" placeholder="Alcoholic" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Blood Group</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="bloodGroup" name="bloodGroup" autocomplete="off" required="required" placeholder="Blood Group" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Diabetic</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="text" id="diabetic" name="diabetic" autocomplete="off" required="required" placeholder="Diabetic" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-sm btn-outline-info" (click)="goBackScript($event);" style="margin-right: 5px;">Back</button>
+                                        <button class="btn btn-sm {{(consumerForm.form.pristine || consumerForm.form.invalid) ? 'btn-outline-secondary disabled' : 'btn-outline-success'}}" [disabled]="consumerForm.form.pristine || consumerForm.form.invalid">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>File</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth type="file" id="fileInput" name="fileInput" autocomplete="off" accept=".csv" (change)="convertFile($event);" required="required" placeholder="File" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    </div>
+                </div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

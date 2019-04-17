@@ -1,0 +1,134 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Add Customer</nb-card-header>
+			<nb-card-body>
+				<div class="">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" name="customerForm" (ngSubmit)="customerForm.form.valid && customerFormSubmit(customerForm)" #customerForm="ngForm" novalidate>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [(ngModel)]="customerAdd.firstName" #vFirstName="ngModel" pattern="[a-zA-Z']*" type="text" id="firstName" name="firstName" autocomplete="off" minlength="3" maxlength="30" required="required" placeholder="First Name" />
+                                            <div *ngIf="vFirstName.invalid && (vFirstName.dirty || vFirstName.touched)" class="alert alert-danger">
+                                                <div *ngIf="vFirstName.hasError('required')">First Name is Required.</div>
+                                                <div *ngIf="vFirstName.hasError('minlength')">First Name must be at least 3 characters long.</div>
+                                                <div *ngIf="vFirstName.hasError('maxlength')">First Name must not be more than 30 characters long.</div>
+                                                <div *ngIf="vFirstName.hasError('pattern')">First Name is Invalid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [(ngModel)]="customerAdd.lastName" #vLastName="ngModel" pattern="[a-zA-Z']*" type="text" id="lastName" name="lastName" autocomplete="off" minlength="3" maxlength="30" required="required" placeholder="Last Name" />
+                                            <div *ngIf="vLastName.invalid && (vLastName.dirty || vLastName.touched)" class="alert alert-danger">
+                                                <div *ngIf="vLastName.hasError('required')">Last Name is Required.</div>
+                                                <div *ngIf="vLastName.hasError('minlength')">Last Name must be at least 3 characters long.</div>
+                                                <div *ngIf="vLastName.hasError('maxlength')">Last Name must not be more than 30 characters long.</div>
+                                                <div *ngIf="vLastName.hasError('pattern')">Last Name is Invalid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="col-sm-6 hide">
+                                    <div class="form-group">
+                                        <label>URL Validation</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [(ngModel)]="urlValidation" #urlValidation="ngModel" pattern="https?://.+" type="text" id="urlValidation" name="urlValidation" autocomplete="off" minlength="7" maxlength="250" required="required" placeholder="URL Validation" />
+                                            <div *ngIf="urlValidation.invalid && (urlValidation.dirty || urlValidation.touched)" class="alert alert-danger">
+                                                <div *ngIf="urlValidation.hasError('required')">URL Validation is Required.</div>
+                                                <div *ngIf="urlValidation.hasError('minlength')">URL Validation must be at least 3 characters long.</div>
+                                                <div *ngIf="urlValidation.hasError('maxlength')">URL Validation must not be more than 30 characters long.</div>
+                                                <div *ngIf="urlValidation.hasError('pattern')">URL Validation is Invalid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <!--<div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [(ngModel)]="phone" #vPhone="ngModel" pattern="[0-9]*" type="text" id="phone" name="phone" autocomplete="off" minlength="10" maxlength="10" required="required" placeholder="Phone" />
+                                            <div *ngIf="vPhone.invalid && (vPhone.dirty || vPhone.touched)" class="alert alert-danger">
+                                                <div *ngIf="vPhone.hasError('required')">Phone is Required.</div>
+                                                <div *ngIf="vPhone.hasError('minlength')">Phone must be at least 10 characters long.</div>
+                                                <div *ngIf="vPhone.hasError('maxlength')">Phone must not be more than 10 characters long.</div>
+                                                <div *ngIf="vPhone.hasError('pattern')">Phone is Invalid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth email [(ngModel)]="email" #vEmail="ngModel" type="text" id="email" name="email" autocomplete="off" minlength="7" maxlength="50" required="required" placeholder="Email" />
+                                            <div *ngIf="vEmail.invalid && (vEmail.dirty || vEmail.touched)" class="alert alert-danger">
+                                                <div *ngIf="vEmail.hasError('required')">Email is Required.</div>
+                                                <div *ngIf="vEmail.hasError('minlength')">Email must be at least 7 characters long.</div>
+                                                <div *ngIf="vEmail.hasError('maxlength')">Email must not be more than 50 characters long.</div>
+                                                <div *ngIf="vEmail.hasError('email')">Email is Invalid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <div class="input-group">
+                                            <select class="form-control" nbInput fullWidth [(ngModel)]="gender" #vGender="ngModel" id="gender" name="gender" autocomplete="off" required="required" placeholder="Gender">
+                                                <option selected="selected" value=""> - Select Gender - </option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                            <div *ngIf="vGender.invalid && (vGender.dirty || vGender.touched)" class="alert alert-danger">
+                                                <div *ngIf="vGender.hasError('required')">Gender is Required.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date Of Birth</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [nbDatepicker]="dateOfBirth1" [(ngModel)]="dateOfBirth" #vDateOfBirth="ngModel" type="text" id="dateOfBirth" minlength="10" maxlength="12" name="dateOfBirth" autocomplete="off" required="required" placeholder="Date Of Birth" />
+                                            <nb-datepicker #dateOfBirth1></nb-datepicker>
+                                            <div *ngIf="vDateOfBirth.invalid && (vDateOfBirth.dirty || vDateOfBirth.touched)" class="alert alert-danger">
+                                                <div *ngIf="vDateOfBirth.hasError('required')">Date Of Birth is Required.</div>
+                                                <div *ngIf="vDateOfBirth.hasError('minlength')">Date Of Birth must be at least 10 characters long.</div>
+                                                <div *ngIf="vDateOfBirth.hasError('maxlength')">Date Of Birth must not be more than 12 characters long.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-sm btn-outline-info" (click)="goBackScript($event);" style="margin-right: 5px;">Back</button>
+                                        <button class="btn btn-sm {{(customerForm.form.pristine || customerForm.form.invalid) ? 'btn-outline-secondary disabled' : 'btn-outline-success'}}" [disabled]="customerForm.form.pristine || customerForm.form.invalid">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">&nbsp;</div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    </div>
+                </div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

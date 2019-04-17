@@ -1,0 +1,145 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Add Service</nb-card-header>
+			<nb-card-body>
+				<p><small><small>Please fill in the details below as required</small></small></p>
+                <form class="form-horizontal" name="serviceAddForm" (ngSubmit)="serviceAddForm.form.valid && serviceAddFormSubmit(providerAddForm)" #serviceAddForm="ngForm" novalidate>
+                    <fieldset>
+                        <legend></legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Category</option>
+                                        <option *ngFor="let category of categories" value="{{category.value}}">{{category.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub Category</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Sub Category</option>
+                                        <option *ngFor="let subCategory of subCategories" value="{{subCategory.value}}">{{subCategory.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Service Name</label>
+                                    <div class="input-group"><input type="text" nbInput fullWidth placeholder="Service Name" /></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Service Provider</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Service Provider</option>
+                                        <option *ngFor="let serviceProvider of serviceProviders" value="{{serviceProvider.value}}">{{serviceProvider.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Service License Agreement</label>
+                                    <div class="input-group"><input type="number" nbInput fullWidth placeholder="Service License Agreement" /></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Service Selling Price</label>
+                                    <div class="input-group"><input type="number" nbInput fullWidth placeholder="Service Selling Price" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Minimum Service Period</label>
+                                    <div class="input-group"><input type="number" nbInput fullWidth placeholder="Minimum Service Period" /></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Maximum Service Period</label>
+                                    <div class="input-group"><input type="number" nbInput fullWidth placeholder="Maximum Service Period" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Registration Date</label>
+                                    <div class="input-group">
+                                        <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                        <nb-datepicker #formpicker></nb-datepicker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Registered By</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Registration Officer</option>
+                                        <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Approval Date</label>
+                                    <div class="input-group">
+                                        <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Approval Date" readonly="readonly" />
+                                        <nb-datepicker #formpicker></nb-datepicker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Approved By</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Approval Officer</option>
+                                        <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Service is Active</label>
+                                    <select class="form-control">
+                                        <option disabled="disabled" value="" selected="selected">Service is Active</option>
+                                        <option *ngFor="let serviceActive of serviceActives" value="{{serviceActive.value}}">{{serviceActive.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <button class="btn btn-primary pull-right" [disabled]="serviceAddForm.form.pristine || serviceAddForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">&nbsp;</div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

@@ -1,0 +1,118 @@
+<nb-card>
+    <nb-card-body>
+        <nb-tabset (changeTab)="onChangeTab($event)">
+            <nb-tab tabTitle="Inventories">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeInv($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeInv of dtPageSizesInv" value="{{pageSizeInv.value}}" selected="{{pageSizeInv.value == postDataInv.pageSize ? 'selected' : ''}}">{{pageSizeInv.text}}</option>
+                                </select>
+                                <button (click)="importServicesInv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                </button>
+                                <button (click)="exportServicesInv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>                                
+                                <button (click)="deleteServicesInv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueInv($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left"><input type="checkbox" id="serviceInvHeadCheckBox" (click)="toggleServiceInvCheckBoxes($event);" /></th>
+                                            <th>Action</th>
+                                            <th class="thChangeIconInv" (click)="filterColumnInv($event, 'tableThNameInv');" id="tableThNameInv" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconInv" (click)="filterColumnInv($event, 'tableThUsernameInv');" id="tableThUsernameInv" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconInv" (click)="filterColumnInv($event, 'tableThEmailInv');" id="tableThEmailInv" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconInv" (click)="filterColumnInv($event, 'tableThPhoneInv');" id="tableThPhoneInv" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconInv" (click)="filterColumnInv($event, 'tableThWebsiteInv');" id="tableThWebsiteInv" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowInv of dtUsersInv">
+                                            <td><input type="checkbox" class="tdCheckBoxes serviceInvCheckBoxes" value="{{rowInv.id}}"/></td>
+                                            <td><a (click)="deleteServiceInv($event, rowInv.id);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a></td>
+                                            <td>{{rowInv.name}}</td>
+                                            <td>{{rowInv.username}}</td>
+                                            <td><a href="mailto:{{rowInv.email}}" style="margin: 0; padding: 0;">{{rowInv.email}}</a></td>
+                                            <td>{{rowInv.phone}}</td>
+                                            <td><a href="http://{{rowInv.website}}" style="margin: 0; padding: 0;">{{rowInv.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsInv}} out of {{totalRecordsInv}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevInv($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageInv($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageInv of dtPagesInv" value="{{pageInv}}" selected="{{postDataInv.pageNo == pageInv ? 'selected' : ''}}">{{pageInv}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextInv($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Change Log">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeCL of dtPageSizesCL" value="{{pageSizeCL.value}}" selected="{{pageSizeCL.value == postDataCL.pageSize ? 'selected' : ''}}">{{pageSizeCL.text}}</option>
+                                </select>
+                                <button (click)="exportInventoriesCL($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueCL($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThNameCL');" id="tableThNameCL" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThUsernameCL');" id="tableThUsernameCL" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThEmailCL');" id="tableThEmailCL" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThPhoneCL');" id="tableThPhoneCL" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThWebsiteCL');" id="tableThWebsiteCL" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowCL of dtUsersCL">
+                                            <td>{{rowCL.name}}</td>
+                                            <td>{{rowCL.username}}</td>
+                                            <td><a href="mailto:{{rowCL.email}}" style="margin: 0; padding: 0;">{{rowCL.email}}</a></td>
+                                            <td>{{rowCL.phone}}</td>
+                                            <td><a href="http://{{rowCL.website}}" style="margin: 0; padding: 0;">{{rowCL.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsCL}} out of {{totalRecordsCL}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevCL($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageCL of dtPagesCL" value="{{pageCL}}" selected="{{postDataCL.pageNo == pageCL ? 'selected' : ''}}">{{pageCL}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextCL($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+        </nb-tabset>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,203 @@
+<nb-card>
+    <nb-card-header>
+        <label style="padding-top: 0.375rem; padding-left: 1.25rem;">Manage Kit</label>
+        <span style="float: right; margin-right: 1.25rem;">
+            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+        </span>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>                       
+                        <a routerLink="/pages/kit/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" /></th>
+                                    <th>Action</th>
+                                    <th>ID <i class="ion-funnel"></i></th>
+                                    <th>Type <i class="ion-funnel"></i></th>
+                                    <th>Name <i class="ion-funnel"></i></th>
+                                    <th>EmailID <i class="ion-funnel"></i></th>
+                                    <th>DefaultCity <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left"><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/kit/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">147</a></td>
+                                    <td>Kit Type - 1</td>
+                                    <td>Kit Name - 1</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 1</a></td>
+                                    <td>City - 1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/kit/manage/edit/2" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">789</a></td>
+                                    <td>Kit Type - 2</td>
+                                    <td>Kit Name - 2</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 2</a></td>
+                                    <td>City - 2</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/kit/manage/edit/3" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">963</a></td>
+                                    <td>Kit Type - 3</td>
+                                    <td>Kit Name - 3</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 3</a></td>
+                                    <td>City - 3</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/kit/manage/edit/4" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">321</a></td>
+                                    <td>Kit Type - 4</td>
+                                    <td>Kit Name - 4</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 4</a></td>
+                                    <td>City - 4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/kit/manage/edit/5" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">159</a></td>
+                                    <td>Kit Type - 5</td>
+                                    <td>Kit Name - 5</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 5</a></td>
+                                    <td>City - 5</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body> 
+</nb-card>
+
+
+
+
+
+<!--
+
+<nb-card>
+    <nb-card-header>
+        <label style="padding-top: 0.375rem; padding-left: 1.25rem;">Manage Kit</label>
+        <span style="float: right; margin-right: 1.25rem;">
+            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValue($event);" />
+        </span>
+    </nb-card-header>
+    <nb-card-body>
+        <style type="text/css">th { cursor: pointer; }</style>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select (change)="selectPageSize($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize.value}}" selected="{{pageSize.value == postData.pageSize ? 'selected' : ''}}">{{pageSize.text}}</option>
+                        </select>                       
+                        <a routerLink="/pages/kit/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button (click)="importKits($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button (click)="exportKits($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button (click)="deleteKits($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" id="kitHeadCheckBox" (click)="toggleKitCheckBoxes($event);" /></th>
+                                    <th>Action</th>
+                                    <th class="thChangeIcon" id="tableThName" data-order="ASC" data-columnName="name" data-columnTitle="Name">Category <i class="ion-funnel"></i></th>
+                                    <th class="thChangeIcon" id="tableThName" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterColumn($event, 'tableThUsername');" id="tableThUsername" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterColumn($event, 'tableThEmail');" id="tableThEmail" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterColumn($event, 'tableThPhone');" id="tableThPhone" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterColumn($event, 'tableThWebsite');" id="tableThWebsite" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of dtUsers">
+                                    <td><input type="checkbox" class="tdCheckBoxes kitCheckBoxes" value="{{row.id}}"/></td>
+                                    <td><a routerLink="/pages/kit/manage/edit/{{row.id}}" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;&nbsp;<a (click)="deleteKit($event, row.id);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a></td>
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.username}}</td>
+                                    <td><a href="mailto:{{row.email}}" style="margin: 0; padding: 0;">{{row.email}}</a></td>
+                                    <td>{{row.phone}}</td>
+                                    <td><a href="http://{{row.website}}" style="margin: 0; padding: 0;">{{row.website}}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecords}} out of {{totalRecords}} record(s)</div>
+                        <div style="float: right;">
+                            <button (click)="pagePrev($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                            &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                            <select (change)="selectPage($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                <option *ngFor="let page of dtPages" value="{{page}}" selected="{{postData.pageNo == page ? 'selected' : ''}}">{{page}}</option>
+                            </select>&nbsp;&nbsp;&nbsp;
+                            <button (click)="pageNext($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body> 
+</nb-card>
+
+-->

@@ -1,0 +1,41 @@
+<nb-card>
+    <nb-card-header>Plan Manage<p><a routerLink="/pages/plan/add" class="btn btn-primary" data-toggle="tooltip" title="Add" style="float: right; margin-right: 5px;"><i class="fa fa-plus"></i></a><button class="btn btn-primary" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;"><i class="fa fa-download"></i>&nbsp;Import</button><button class="btn btn-primary" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;"><i class="fa fa-upload"></i>&nbsp;Export</button></p></nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-sm-12 table-responsive">
+                <table datatable class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <th>Action</th>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Email Id</th>
+                            <th>Address City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of dtUsers">
+                            <td><input type="checkbox" value="{{row.id}}"/></td>
+                            <td>
+                                <a routerLink="/pages/plan/edit/{{row.id}}" class="btn btn-warning btn-xs btn-outline btn-round" data-toggle="tooltip" title="Modify" style="margin-right: 3px;"><i class="fa fa-edit"></i></a>
+                                <button (click)="deleteProvider($event, row.id);" class="btn btn-danger btn-xs btn-outline btn-round" data-toggle="tooltip" title="Remove" style="margin-right: 3px;"><i class="fa fa-trash"></i></button>
+                            </td>
+                            <td>{{row.id}}</td>
+                            <td>{{row.firstName}}</td>
+                            <td>{{row.lastName}}</td>
+                            <td>{{row.gender}}</td>
+                            <td>{{row.age}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.city}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

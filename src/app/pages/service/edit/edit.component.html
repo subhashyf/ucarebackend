@@ -1,0 +1,297 @@
+<nb-card>
+    <nb-card-body>
+        <nb-tabset (changeTab)="onChangeTab($event)">
+            <nb-tab tabTitle="Modify Service Details">
+                <div class="">
+                    <div class="col-sm-12">
+                        <p><small><small>Please fill in the details below as required</small></small></p>
+                        <form class="form-horizontal" name="serviceEditForm" (ngSubmit)="serviceEditForm.form.valid && serviceEditFormSubmit(providerEditForm)" #serviceEditForm="ngForm" novalidate>
+                            <fieldset>
+                                <legend></legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Category</option>
+                                                <option *ngFor="let category of categories" value="{{category.value}}">{{category.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Sub Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Sub Category</option>
+                                                <option *ngFor="let subCategory of subCategories" value="{{subCategory.value}}">{{subCategory.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Service Name</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Service Name" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Service Provider</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Service Provider</option>
+                                                <option *ngFor="let serviceProvider of serviceProviders" value="{{serviceProvider.value}}">{{serviceProvider.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Service License Agreement</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Service License Agreement" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Service Selling Price</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Service Selling Price" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Minimum Service Period</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Minimum Service Period" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Maximum Service Period</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Maximum Service Period" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registration Date</label>
+                                            <div class="input-group">
+                                                <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registered By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Registration Officer</option>
+                                                <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Approval Date</label>
+                                            <div class="input-group">
+                                                <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Approval Date" readonly="readonly" />
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Approved By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Approval Officer</option>
+                                                <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Service is Active</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Service is Active</option>
+                                                <option *ngFor="let serviceActive of serviceActives" value="{{serviceActive.value}}">{{serviceActive.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary pull-right" [disabled]="serviceEditForm.form.pristine || serviceEditForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Provider">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <!-- (change)="selectPageSizeSP($event);" -->
+                                <select  class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <!-- <option *ngFor="let pageSizeSP of dtPageSizesSP" value="{{pageSizeSP.value}}" selected="{{pageSizeSP.value == postDataSP.pageSize ? 'selected' : ''}}">{{pageSizeSP.text}}</option> -->
+                                </select>
+                                <button  class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                </button>
+                                <!-- (click)="exportServicesSP($event);" -->
+                                <button  class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>
+                                <button  class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <!-- (keyup)="searchValueSP($event);" -->
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small"  />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <!-- (click)="filterColumnSP($event, 'tableThNameSP');"  -->
+                                            <th class="thChangeIconSP" id="tableThNameSP" data-order="ASC" data-columnName="name" data-columnTitle="Name">Provider <i class="ion-funnel"></i></th>
+                                            <!-- (click)="filterColumnSP($event, 'tableThUsernameSP');" -->
+                                            <th class="thChangeIconSP" id="tableThUsernameSP" data-order="ASC" data-columnName="username" data-columnTitle="User Name">City <i class="ion-funnel"></i></th>
+                                            <!-- (click)="filterColumnSP($event, 'tableThEmailSP');" -->
+                                            <th class="thChangeIconSP" id="tableThEmailSP" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">State <i class="ion-funnel"></i></th>
+                                            <!-- (click)="filterColumnSP($event, 'tableThPhoneSP');" -->
+                                            <th class="thChangeIconSP" id="tableThPhoneSP" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">isDefault <i class="ion-funnel"></i></th>
+                                            <!-- (click)="filterColumnSP($event, 'tableThWebsiteSP');" -->
+                                            <th class="thChangeIconSP" id="tableThWebsiteSP" data-order="ASC" data-columnName="website" data-columnTitle="Website">Priority Order <i class="ion-funnel"></i></th>
+                                            <!-- (click)="filterColumnSP($event, 'tableThWebsiteSP');" -->
+                                            <th class="thChangeIconSP" id="tableThWebsiteSP" data-order="ASC" data-columnName="website" data-columnTitle="Website">isActive <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Provider - 1</td>
+                                            <td>Mumbai</td>
+                                            <td>Maharashtra</td>
+                                            <td>YES</td>
+                                            <td>1</td>
+                                            <td>YES</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Provider - 2</td>
+                                            <td>Mumbai</td>
+                                            <td>Maharashtra</td>
+                                            <td>NO</td>
+                                            <td>2</td>
+                                            <td>YES</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Provider - 1</td>
+                                            <td>Vapi</td>
+                                            <td>Gujrat</td>
+                                            <td>YES</td>
+                                            <td>1</td>
+                                            <td>YES</td>
+                                        </tr>
+                                        <!-- <tr *ngFor="let rowSP of dtUsersSP">
+                                            <td>{{rowSP.name}}</td>
+                                            <td>{{rowSP.username}}</td>
+                                            <td><a href="mailto:{{rowSP.email}}" style="margin: 0; padding: 0;">{{rowSP.email}}</a></td>
+                                            <td>{{rowSP.phone}}</td>
+                                            <td><a href="http://{{rowSP.website}}" style="margin: 0; padding: 0;">{{rowSP.website}}</a></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing <!-- {{showingRecordsSP}} --> out of <!-- {{totalRecordsSP}} --> record(s)</div>
+                                <div style="float: right;">
+                                    <!-- (click)="pagePrevSP($event);" -->
+                                    <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <!-- (change)="selectPageSP($event);" -->
+                                    <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option>1</option>
+                                        <!-- <option *ngFor="let pageSP of dtPagesSP" value="{{pageSP}}" selected="{{postDataSP.pageNo == pageSP ? 'selected' : ''}}">{{pageSP}}</option> -->
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <!-- (click)="pageNextSP($event);" -->
+                                    <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+            <!--<nb-tab tabTitle="Change Log">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeCL of dtPageSizesCL" value="{{pageSizeCL.value}}" selected="{{pageSizeCL.value == postDataCL.pageSize ? 'selected' : ''}}">{{pageSizeCL.text}}</option>
+                                </select>
+                                <button (click)="exportServicesCL($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueCL($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThNameCL');" id="tableThNameCL" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThUsernameCL');" id="tableThUsernameCL" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThEmailCL');" id="tableThEmailCL" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThPhoneCL');" id="tableThPhoneCL" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThWebsiteCL');" id="tableThWebsiteCL" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowCL of dtUsersCL">
+                                            <td>{{rowCL.name}}</td>
+                                            <td>{{rowCL.username}}</td>
+                                            <td><a href="mailto:{{rowCL.email}}" style="margin: 0; padding: 0;">{{rowCL.email}}</a></td>
+                                            <td>{{rowCL.phone}}</td>
+                                            <td><a href="http://{{rowCL.website}}" style="margin: 0; padding: 0;">{{rowCL.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsCL}} out of {{totalRecordsCL}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevCL($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageCL of dtPagesCL" value="{{pageCL}}" selected="{{postDataCL.pageNo == pageCL ? 'selected' : ''}}">{{pageCL}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextCL($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>-->
+        </nb-tabset>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,81 @@
+<nb-card>
+    <nb-card-header>
+        <label style="padding-top: 0.375rem; padding-left: 1.25rem;">Calorie Report</label>
+        <span style="float: right; margin-right: 1.25rem;">
+            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+        </span>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>timeStamp <i class="ion-funnel"></i></th>
+                                    <th>consumerID <i class="ion-funnel"></i></th>
+                                    <th>deviceID <i class="ion-funnel"></i></th>
+                                    <th>dataValue <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2019-03-02 23:23:23.233</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">147</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">741</a></td>
+                                    <td>"calorie-up": 1.0, "calorie-mid": 4.0, "calorie-down": 7.0</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-03-02 23:23:23.233</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">258</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">852</a></td>
+                                    <td>"calorie-up": 2.0, "calorie-mid": 5.0, "calorie-down": 8.0</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-03-02 23:23:23.233</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">369</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">963</a></td>
+                                    <td>"calorie-up": 3.0, "calorie-mid": 6.0, "calorie-down": 9.0</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-03-02 23:23:23.233</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">321</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">123</a></td>
+                                    <td>"calorie-up": 3.0, "calorie-mid": 2.0, "calorie-down": 1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-03-02 23:23:23.233</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">654</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">456</a></td>
+                                    <td>"calorie-up": 6.0, "calorie-mid": 5.0, "calorie-down": 4.0</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body> 
+</nb-card>

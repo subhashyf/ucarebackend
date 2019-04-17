@@ -1,0 +1,1288 @@
+<nb-card>
+    <nb-card-body>
+        <nb-tabset (changeTab)="onChangeTab($event)">
+            <nb-tab tabTitle="ConsumerInformation">
+
+                            <div id="ConsumerInformation" data-setaof="successofdanger"></div>
+            	<div class="col-lg-12">
+
+            		<form class="form-horizontal" name="consumerAddForm" (ngSubmit)="consumerAddForm.form.valid && consumerAddFormSubmit(consumerAddForm)" #consumerAddForm="ngForm" novalidate>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="First Name" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Last Name" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Phone Number" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Other Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Number 1</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 1" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Number 2</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 2" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email 1</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 1" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email 2</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 2" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Website</label>
+                                        <div class="input-group"><input type="url" nbInput fullWidth placeholder="Website" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Description" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registration Date</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                            <nb-datepicker #formpicker></nb-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registration Status</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Registration Status</option>
+                                            <option *ngFor="let registrationStatus of registrationStatuses" value="{{registrationStatus.value}}">{{registrationStatus.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registered By</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Registered By</option>
+                                            <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Approved By</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Approved By</option>
+                                            <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Address Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Street Address</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Street Address" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Landmark</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Landmark" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="City" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Pin Code</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Pin Code" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">State</option>
+                                            <option *ngFor="let state of states" value="{{state.value}}">{{state.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Country</option>
+                                            <option *ngFor="let country of countries" value="{{country.value}}">{{country.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Bank Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Account Name" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Number</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Account Number" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>IFSC Code</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="IFSC Code" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Type</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Account Type</option>
+                                            <option *ngFor="let accountType of accountTypes" value="{{accountType.value}}">{{accountType.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary pull-right" [disabled]="consumerAddForm.form.pristine || consumerAddForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">&nbsp;</div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+            	</div>
+            	<div class="col-lg-12">
+            		<nb-tabset (changeTab)="onChangeTab($event)">
+            			<nb-tab tabTitle="KYC Document">
+                            <div class="col-lg-12">                 
+                                <p style="margin-top: 5px;">
+                                    <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                    <select (change)="kycDocumentPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getKycDocumentFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                                    </select>                        
+                                    <span style="float: right;">
+                                        <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                                    </span>
+                                    <a routerLink="/pages/consumer/kyc/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                    </a>
+                                    <button (click)="importKycDocuments($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                    </button>
+                                    <button (click)="exportKycDocuments($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                    </button>
+                                    <button (click)="deleteKycDocuments($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                                    </button>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-border table-hover" style="margin: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                                <th>Action</th>
+                                                <th class="thChangeIcon" (click)="filterKycDocumentColumn($event, 'documentType');" id="documentType" data-order="ASC" data-columnName="documentType" data-columnTitle="documentType">documentType <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterKycDocumentColumn($event, 'documentNumber');" id="documentNumber" data-order="ASC" data-columnName="documentNumber" data-columnTitle="documentNumber">documentNumber <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterKycDocumentColumn($event, 'documentStatus');" id="documentStatus" data-order="ASC" data-columnName="documentStatus" data-columnTitle="documentStatus">documentStatus <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterKycDocumentColumn($event, 'fileDetail');" id="fileDetail" data-order="ASC" data-columnName="fileDetail" data-columnTitle="fileDetail">fileDetail <i class="fa ion-funnel"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let row of kycDocumentList">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                                </td>
+                                                <td>
+                                                    <a routerLink="/pages/consumer/kyc/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                                    <a (click)="deleteKycDocumentData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                                </td>
+                                                <td>{{row['documentType']}}</td>
+                                                <td>{{row['documentNumber']}}</td>
+                                                <td>{{row['documentStatus']}}</td>
+                                                <td><a href="{{row['fileDetail']['url2']}}" target="_blank" download="{{row['fileDetail']['name']}}" style="margin: 0; padding: 0;" class="text-info">{{row['fileDetail']['name']}}</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingKycDocumentRecords}} out of {{totalKycDocumentRecords}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="navPrevKycDocumentPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="kycDocumentPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let kycDocumentPage of kycDocumentPages" value="{{kycDocumentPage}}" selected="{{getKycDocumentFormData.pageNo == kycDocumentPage ? 'selected' : ''}}">{{kycDocumentPage}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="navNextKycDocumentPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </nb-tab>
+            			<nb-tab tabTitle="Dependant Member">
+                            <div class="col-lg-12">                 
+                                <p style="margin-top: 5px;">
+                                    <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                    <select (change)="dependantMemberPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getDependantMemberFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                                    </select>                        
+                                    <span style="float: right;">
+                                        <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                                    </span>
+                                    <a routerLink="/pages/consumer/dependantMember/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                    </a>
+                                    <button (click)="importDependantMembers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                    </button>
+                                    <button (click)="exportDependantMembers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                    </button>
+                                    <button (click)="deleteDependantMembers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                                    </button>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-border table-hover" style="margin: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                                <th>Action</th>
+                                                <th class="thChangeIcon" (click)="filterDependantMemberColumn($event, 'firstName');" id="firstName" data-order="ASC" data-columnName="firstName" data-columnTitle="firstName">firstName <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterDependantMemberColumn($event, 'lastName');" id="lastName" data-order="ASC" data-columnName="lastName" data-columnTitle="lastName">lastName <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterDependantMemberColumn($event, 'emailId');" id="emailId" data-order="ASC" data-columnName="emailId" data-columnTitle="emailId">emailId <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterDependantMemberColumn($event, 'phone');" id="phone" data-order="ASC" data-columnName="phone" data-columnTitle="phone">phone <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterDependantMemberColumn($event, 'relationWithConsumer');" id="relationWithConsumer" data-order="ASC" data-columnName="relationWithConsumer" data-columnTitle="relationWithConsumer">relationWithConsumer <i class="fa ion-funnel"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let row of dependantMemberList">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                                </td>
+                                                <td>
+                                                    <a routerLink="/pages/consumer/dependantMember/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                                    <a (click)="deleteDependantMemberData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                                </td>
+                                                <td>{{row['firstName']}}</td>
+                                                <td>{{row['lastName']}}</td>
+                                                <td><a href="mailto:{{row['emailId']}}" target="_blank" style="margin: 0; padding: 0;" class="text-info">{{row['emailId']}}</a></td>
+                                                <td>{{row['phone']}}</td>
+                                                <td>{{row['relationWithConsumer']}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingDependantMemberRecords}} out of {{totalDependantMemberRecords}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="navPrevDependantMemberPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="dependantMemberPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let dependantMemberPage of dependantMemberPages" value="{{dependantMemberPage}}" selected="{{getDependantMemberFormData.pageNo == dependantMemberPage ? 'selected' : ''}}">{{dependantMemberPage}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="navNextDependantMemberPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </nb-tab>
+            			<nb-tab tabTitle="Allergy">
+                            <div class="col-lg-12">                 
+                                <p style="margin-top: 5px;">
+                                    <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                    <select (change)="allergyPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getAllergyFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                                    </select>                        
+                                    <span style="float: right;">
+                                        <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                                    </span>
+                                    <a routerLink="/pages/consumer/allergy/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                    </a>
+                                    <button (click)="importAllergies($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                    </button>
+                                    <button (click)="exportAllergies($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                    </button>
+                                    <button (click)="deleteAllergies($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                        <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                                    </button>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table table-border table-hover" style="margin: 0;">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                                <th>Action</th>
+                                                <th class="thChangeIcon" (click)="filterAllergyColumn($event, 'notificatinType');" id="notificatinType" data-order="ASC" data-columnName="notificatinType" data-columnTitle="notificatinType">notificatinType <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterAllergyColumn($event, 'allergyContent');" id="allergyContent" data-order="ASC" data-columnName="allergyContent" data-columnTitle="allergyContent">allergyContent <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterAllergyColumn($event, 'readStatus');" id="readStatus" data-order="ASC" data-columnName="readStatus" data-columnTitle="readStatus">readStatus <i class="fa ion-funnel"></i></th>
+                                                <th class="thChangeIcon" (click)="filterAllergyColumn($event, 'link');" id="link" data-order="ASC" data-columnName="link" data-columnTitle="link">link <i class="fa ion-funnel"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let row of allergyList">
+                                                <td class="text-left">
+                                                    <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                                </td>
+                                                <td>
+                                                    <a routerLink="/pages/consumer/allergy/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                                    <a (click)="deleteAllergyData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                                </td>
+                                                <td>{{row['allergyName']}}</td>
+                                                <td>{{row['allergyType']}}</td>
+                                                <td>{{row['readStatus']}}</td>
+                                                <td><a href="{{row['link']}}" target="_blank" style="margin: 0; padding: 0;" class="text-info">{{row['link']}}</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingAllergyRecords}} out of {{totalAllergyRecords}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="navPrevAllergyPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="allergyPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let allergyPage of allergyPages" value="{{allergyPage}}" selected="{{getAllergyFormData.pageNo == allergyPage ? 'selected' : ''}}">{{allergyPage}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="navNextAllergyPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </nb-tab>
+            			<nb-tab tabTitle="Emergency Contact">
+			            	<div class="col-lg-12">            		
+			            		<p style="margin-top: 5px;">
+			                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>10</option>
+			                            <option>20</option>
+			                            <option>50</option>
+			                            <option>100</option>
+			                        </select>                       
+			                        <span style="float: right;">
+							            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+							        </span>
+			                        <a routerLink="/pages/consumer/emergencycontact/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+			                        </a> 
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+			                        </button>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+			                        </button>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+			                        </button>
+			                    </p>
+			                    <div class="table-responsive">
+			                        <table class="table table-border table-hover" style="margin: 0;">
+			                            <thead>
+			                                <tr>
+			                                    <th class="text-left"><input type="checkbox" /></th>
+			                                    <th>Action</th>
+			                                    <th>contactConsumerID <i class="ion-funnel"></i></th>
+			                                    <th>firstName <i class="ion-funnel"></i></th>
+			                                    <th>lastName <i class="ion-funnel"></i></th>
+			                                    <th>emailID <i class="ion-funnel"></i></th>
+			                                    <th>Phone <i class="ion-funnel"></i></th>
+			                                    <th>Relation <i class="ion-funnel"></i></th>
+			                                </tr>
+			                            </thead>
+			                            <tbody>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/emergencycontact/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">123</a></td>
+			                                    <td>fName - 1</td>
+			                                    <td>lName - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 1</a></td>
+			                                    <td>phone - 1</td>
+			                                    <td>SON</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/emergencycontact/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td></td>
+			                                    <td>fName - 2</td>
+			                                    <td>lName - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 2</a></td>
+			                                    <td>phone - 2</td>
+			                                    <td>DAUGHTER</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/emergencycontact/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td></td>
+			                                    <td>fName - 3</td>
+			                                    <td>lName - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 3</a></td>
+			                                    <td>phone - 3</td>
+			                                    <td>WIFE</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/emergencycontact/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">987</a></td>
+			                                    <td>fName - 4</td>
+			                                    <td>lName - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 4</a></td>
+			                                    <td>phone - 1</td>
+			                                    <td>DAD</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/emergencycontact/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td></td>
+			                                    <td>fName - 5</td>
+			                                    <td>lName - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Id - 5</a></td>
+			                                    <td>phone - 2</td>
+			                                    <td>MOM</td>
+			                                </tr>
+			                            </tbody>
+			                        </table>                        
+			                    </div>
+			                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+			                    <div style="float: right;">
+			                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+			                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>1</option>
+			                        </select>&nbsp;&nbsp;&nbsp;
+			                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+			                    </div>
+			            	</div>
+			            </nb-tab>
+            			<nb-tab tabTitle="Care Giver">
+			            	<div class="col-lg-12">            		
+			            		<p style="margin-top: 5px;">
+			                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>10</option>
+			                            <option>20</option>
+			                            <option>50</option>
+			                            <option>100</option>
+			                        </select>                       
+			                        <span style="float: right;">
+							            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+							        </span>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+			                        </button>
+			                    </p>
+			                    <div class="table-responsive">
+			                        <table class="table table-border table-hover" style="margin: 0;">
+			                            <thead>
+			                                <tr>
+			                                    <th>careGiverConsumerID <i class="ion-funnel"></i></th>
+			                                    <th>inviteSent <i class="ion-funnel"></i></th>
+			                                    <th>inviteAccepted <i class="ion-funnel"></i></th>
+			                                    <th>Status <i class="ion-funnel"></i></th>
+			                                    <th>Relation <i class="ion-funnel"></i></th>
+			                                </tr>
+			                            </thead>
+			                            <tbody>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">321</a></td>
+			                                    <td>2019-04-02 17:19:33</td>
+			                                    <td></td>
+			                                    <td>PENDING</td>
+			                                    <td>SON</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">654</a></td>
+			                                    <td>2019-02-22 19:17:22</td>
+			                                    <td>2019-02-22 19:17:22</td>
+			                                    <td>UNDER VERIFICATION</td>
+			                                    <td>DAUGHTER</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">987</a></td>
+			                                    <td>2019-02-02 22:19:17</td>
+			                                    <td>2019-02-02 22:19:17</td>
+			                                    <td>SENT</td>
+			                                    <td>MOM</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">753</a></td>
+			                                    <td>2019-03-22 17:33:19</td>
+			                                    <td>2019-03-22 17:33:19</td>
+			                                    <td>ACCEPTED</td>
+			                                    <td>DAD</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">159</a></td>
+			                                    <td>2019-03-02 19:22:33</td>
+			                                    <td>2019-03-02 19:22:33</td>
+			                                    <td>VERIFIED</td>
+			                                    <td>WIFE</td>
+			                                </tr>                                    
+			                            </tbody>
+			                        </table>                        
+			                    </div>
+			                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+			                    <div style="float: right;">
+			                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+			                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>1</option>
+			                        </select>&nbsp;&nbsp;&nbsp;
+			                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+			                    </div>
+			            	</div>
+			            </nb-tab>
+            			<nb-tab tabTitle="Doctor">
+			            	<div class="col-lg-12">            		
+			            		<p style="margin-top: 5px;">
+			                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>10</option>
+			                            <option>20</option>
+			                            <option>50</option>
+			                            <option>100</option>
+			                        </select>                       
+			                        <span style="float: right;">
+							            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+							        </span>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+			                        </button>
+			                    </p>
+			                    <div class="table-responsive">
+			                        <table class="table table-border table-hover" style="margin: 0;">
+			                            <thead>
+			                                <tr>
+			                                    <th>doctorConsumerID <i class="ion-funnel"></i></th>
+			                                    <th>firstName <i class="ion-funnel"></i></th>
+			                                    <th>lastName <i class="ion-funnel"></i></th>
+			                                    <th>emailID <i class="ion-funnel"></i></th>
+			                                    <th>phoneNo <i class="ion-funnel"></i></th>
+			                                    <th>Timing <i class="ion-funnel"></i></th>
+			                                    <th>Street <i class="ion-funnel"></i></th>
+			                                    <th>Locality <i class="ion-funnel"></i></th>
+			                                    <th>City <i class="ion-funnel"></i></th>
+			                                    <th>State <i class="ion-funnel"></i></th>
+			                                    <th>Country <i class="ion-funnel"></i></th>
+			                                    <th>zipCode <i class="ion-funnel"></i></th>
+			                                </tr>
+			                            </thead>
+			                            <tbody>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">951</a></td>
+			                                    <td>First Name - 1</td>
+			                                    <td>Last Name - 1</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Address - 1</a></td>
+			                                    <td>Phone Number - 1</td>
+			                                    <td>Timing - 1</td>
+			                                    <td>Street Address - 1</td>
+			                                    <td>Locality Address - 1</td>
+			                                    <td>City Address - 1</td>
+			                                    <td>State Address - 1</td>
+			                                    <td>Country Address - 1</td>
+			                                    <td>Zip Code Address - 1</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">753</a></td>
+			                                    <td>First Name - 2</td>
+			                                    <td>Last Name - 2</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Address - 2</a></td>
+			                                    <td>Phone Number - 2</td>
+			                                    <td>Timing - 2</td>
+			                                    <td>Street Address - 2</td>
+			                                    <td>Locality Address - 2</td>
+			                                    <td>City Address - 2</td>
+			                                    <td>State Address - 2</td>
+			                                    <td>Country Address - 2</td>
+			                                    <td>Zip Code Address - 2</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">159</a></td>
+			                                    <td>First Name - 3</td>
+			                                    <td>Last Name - 3</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Address - 3</a></td>
+			                                    <td>Phone Number - 3</td>
+			                                    <td>Timing - 3</td>
+			                                    <td>Street Address - 3</td>
+			                                    <td>Locality Address - 3</td>
+			                                    <td>City Address - 3</td>
+			                                    <td>State Address - 3</td>
+			                                    <td>Country Address - 3</td>
+			                                    <td>Zip Code Address - 3</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">357</a></td>
+			                                    <td>First Name - 4</td>
+			                                    <td>Last Name - 4</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Address - 4</a></td>
+			                                    <td>Phone Number - 4</td>
+			                                    <td>Timing - 4</td>
+			                                    <td>Street Address - 4</td>
+			                                    <td>Locality Address - 4</td>
+			                                    <td>City Address - 4</td>
+			                                    <td>State Address - 4</td>
+			                                    <td>Country Address - 4</td>
+			                                    <td>Zip Code Address - 4</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">963</a></td>
+			                                    <td>First Name - 5</td>
+			                                    <td>Last Name - 5</td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Email Address - 5</a></td>
+			                                    <td>Phone Number - 5</td>
+			                                    <td>Timing - 5</td>
+			                                    <td>Street Address - 5</td>
+			                                    <td>Locality Address - 5</td>
+			                                    <td>City Address - 5</td>
+			                                    <td>State Address - 5</td>
+			                                    <td>Country Address - 5</td>
+			                                    <td>Zip Code Address - 5</td>
+			                                </tr>
+			                            </tbody>
+			                        </table>                        
+			                    </div>
+			                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+			                    <div style="float: right;">
+			                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+			                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>1</option>
+			                        </select>&nbsp;&nbsp;&nbsp;
+			                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+			                    </div>
+			            	</div>
+			            </nb-tab>
+			            <nb-tab tabTitle="Insurance">
+			            	<div class="col-lg-12">            		
+			            		<p style="margin-top: 5px;">
+			                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>10</option>
+			                            <option>20</option>
+			                            <option>50</option>
+			                            <option>100</option>
+			                        </select>
+			                        <span style="float: right;">
+							            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+							        </span>
+			                        <a routerLink="/pages/consumer/insurance/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+			                        </a>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+			                        </button>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+			                        </button>
+			                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+			                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+			                        </button>
+			                    </p>
+			                    <div class="table-responsive">
+			                        <table class="table table-border table-hover" style="margin: 0;">
+			                            <thead>
+			                                <tr>
+			                                    <th class="text-left"><input type="checkbox" /></th>
+			                                    <th>Action</th>
+			                                    <th>orderID <i class="ion-funnel"></i></th>
+			                                    <th>insuranceType <i class="ion-funnel"></i></th>
+			                                    <th>insurancePolicyNo <i class="ion-funnel"></i></th>
+			                                    <th>insuranceCover <i class="ion-funnel"></i></th>
+			                                    <th>activationDateTime <i class="ion-funnel"></i></th>
+			                                    <th>insuranceEndDateTime <i class="ion-funnel"></i></th>
+			                                    <th>insuranceStatus <i class="ion-funnel"></i></th>
+			                                </tr>
+			                            </thead>
+			                            <tbody>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/insurance/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 1</a></td>
+			                                    <td>Type - 1</td>
+			                                    <td>Policy - 1</td>
+			                                    <td>Cover - 1</td>
+			                                    <td>Activation Date Time - 1</td>
+			                                    <td>Insurance End Date Time - 1</td>
+			                                    <td>Insurance Status - 1</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/insurance/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 2</a></td>
+			                                    <td>Type - 2</td>
+			                                    <td>Policy - 2</td>
+			                                    <td>Cover - 2</td>
+			                                    <td>Activation Date Time - 2</td>
+			                                    <td>Insurance End Date Time - 2</td>
+			                                    <td>Insurance Status - 2</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/insurance/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 3</a></td>
+			                                    <td>Type - 3</td>
+			                                    <td>Policy - 3</td>
+			                                    <td>Cover - 3</td>
+			                                    <td>Activation Date Time - 3</td>
+			                                    <td>Insurance End Date Time - 3</td>
+			                                    <td>Insurance Status - 3</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/insurance/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 4</a></td>
+			                                    <td>Type - 4</td>
+			                                    <td>Policy - 4</td>
+			                                    <td>Cover - 4</td>
+			                                    <td>Activation Date Time - 4</td>
+			                                    <td>Insurance End Date Time - 4</td>
+			                                    <td>Insurance Status - 4</td>
+			                                </tr>
+			                                <tr>
+			                                    <td><input type="checkbox" /></td>
+			                                    <td>
+			                                    	<a routerLink="/pages/consumer/insurance/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+			                                    	<a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+			                                    </td>
+			                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 5</a></td>
+			                                    <td>Type - 5</td>
+			                                    <td>Policy - 5</td>
+			                                    <td>Cover - 5</td>
+			                                    <td>Activation Date Time - 5</td>
+			                                    <td>Insurance End Date Time - 5</td>
+			                                    <td>Insurance Status - 5</td>
+			                                </tr>
+			                            </tbody>
+			                        </table>                        
+			                    </div>
+			                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+			                    <div style="float: right;">
+			                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+			                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+			                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+			                            <option>1</option>
+			                        </select>&nbsp;&nbsp;&nbsp;
+			                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+			                    </div>
+			            	</div>
+			            </nb-tab>
+            		</nb-tabset>
+            	</div>
+            </nb-tab>
+			<nb-tab tabTitle="Service">
+            	<div class="col-lg-12">            		
+            		<p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>                       
+                        <span style="float: right;">
+				            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+				        </span>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>orderID <i class="ion-funnel"></i></th>
+                                    <th>kitID <i class="ion-funnel"></i></th>
+                                    <th>serviceType <i class="ion-funnel"></i></th>
+                                    <th>serviceName <i class="ion-funnel"></i></th>
+                                    <th>serviceToken <i class="ion-funnel"></i></th>
+                                    <th>serviceExpiry <i class="ion-funnel"></i></th>
+                                    <th>serviceStatus <i class="ion-funnel"></i></th>
+                                    <th>Provider <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/service/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 1</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 1</a></td>
+                                    <td>Mobility</td>
+                                    <td>BookACab</td>
+                                    <td>Service Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 3</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/service/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 2</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 2</a></td>
+                                    <td>Mobility</td>
+                                    <td>BookACab</td>
+                                    <td>Service Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 3</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/service/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 3</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 3</a></td>
+                                    <td>Mobility</td>
+                                    <td>BookACab</td>
+                                    <td>Service Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 2</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/service/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 4</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 4</a></td>
+                                    <td>Mobility</td>
+                                    <td>BookACab</td>
+                                    <td>Service Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 5</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/service/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 5</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 5</a></td>
+                                    <td>Mobility</td>
+                                    <td>BookACab</td>
+                                    <td>Service Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 1</a></td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+            	</div>
+            </nb-tab>
+			<nb-tab tabTitle="Device">
+            	<div class="col-lg-12">            		
+            		<p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>                       
+                        <span style="float: right;">
+				            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+				        </span>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>orderID <i class="ion-funnel"></i></th>
+                                    <th>kitID <i class="ion-funnel"></i></th>
+                                    <th>deviceType <i class="ion-funnel"></i></th>
+                                    <th>deviceName <i class="ion-funnel"></i></th>
+                                    <th>deviceToken <i class="ion-funnel"></i></th>
+                                    <th>deviceExpiry <i class="ion-funnel"></i></th>
+                                    <th>deviceStatus <i class="ion-funnel"></i></th>
+                                    <th>Provider <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/device/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 1</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 1</a></td>
+                                    <td>Wrist-Watch</td>
+                                    <td>Fitbid</td>
+                                    <td>Device Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 5</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/device/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 2</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 2</a></td>
+                                    <td>Wrist-Watch</td>
+                                    <td>Garmin</td>
+                                    <td>Device Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 5</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/device/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 3</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 3</a></td>
+                                    <td>Wrist-Watch</td>
+                                    <td>Garmin</td>
+                                    <td>Device Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 3</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/device/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 4</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 4</a></td>
+                                    <td>Wrist-Watch</td>
+                                    <td>Fitbid</td>
+                                    <td>Device Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 3</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    	<a routerLink="/pages/consumer/device/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id - 5</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 5</a></td>
+                                    <td>Wrist-Watch</td>
+                                    <td>Fitbid</td>
+                                    <td>Device Token - 1</td>
+                                    <td>2019-04-02 17:19:33</td>
+                                    <td>ACTIVE</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Provider Id - 5</a></td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+            	</div>
+            </nb-tab>
+            <nb-tab tabTitle="Service Request">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select (change)="serviceRequestPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getServiceRequestFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                        </select>                        
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <a routerLink="/pages/consumer/serviceRequest/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button (click)="importServiceRequests($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button (click)="exportServiceRequests($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button (click)="deleteServiceRequests($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                    <th>Action</th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'requestDateTime');" id="requestDateTime" data-order="ASC" data-columnName="requestDateTime" data-columnTitle="requestDateTime">requestDateTime <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'serviceRequestNumber');" id="serviceRequestNumber" data-order="ASC" data-columnName="serviceRequestNumber" data-columnTitle="serviceRequestNumber">serviceRequestNumber <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'serviceType');" id="serviceType" data-order="ASC" data-columnName="serviceType" data-columnTitle="serviceType">serviceType <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'requestMethod');" id="requestMethod" data-order="ASC" data-columnName="requestMethod" data-columnTitle="requestMethod">requestMethod <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'firstResponseTimeStamp');" id="firstResponseTimeStamp" data-order="ASC" data-columnName="firstResponseTimeStamp" data-columnTitle="firstResponseTimeStamp">firstResponseTimeStamp <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterServiceRequestColumn($event, 'status');" id="status" data-order="ASC" data-columnName="status" data-columnTitle="status">status <i class="fa ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of serviceRequestList">
+                                    <td class="text-left">
+                                        <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                    </td>
+                                    <td>
+                                        <a routerLink="/pages/consumer/serviceRequest/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a (click)="deleteServiceRequestData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>{{row['requestDateTime']}}</td>
+                                    <td>{{row['serviceRequestNumber']}}</td>
+                                    <td>{{row['serviceType']}}</td>
+                                    <td>{{row['requestMethod']}}</td>
+                                    <td>{{row['firstResponseTimeStamp']}}</td>
+                                    <td>{{row['status']}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingServiceRequestRecords}} out of {{totalServiceRequestRecords}} record(s)</div>
+                    <div style="float: right;">
+                        <button (click)="navPrevServiceRequestPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select (change)="serviceRequestPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let serviceRequestPage of serviceRequestPages" value="{{serviceRequestPage}}" selected="{{getServiceRequestFormData.pageNo == serviceRequestPage ? 'selected' : ''}}">{{serviceRequestPage}}</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button (click)="navNextServiceRequestPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Health Vault">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select (change)="healthVaultPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getHealthVaultFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                        </select>                        
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <a routerLink="/pages/consumer/healthVault/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button (click)="importHealthVaults($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button (click)="exportHealthVaults($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button (click)="deleteHealthVaults($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                    <th>Action</th>
+                                    <th class="thChangeIcon" (click)="filterHealthVaultColumn($event, 'date');" id="date" data-order="ASC" data-columnName="date" data-columnTitle="date">date <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterHealthVaultColumn($event, 'healthDataType');" id="healthDataType" data-order="ASC" data-columnName="healthDataType" data-columnTitle="healthDataType">healthDataType <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterHealthVaultColumn($event, 'healthDataValue');" id="healthDataValue" data-order="ASC" data-columnName="healthDataValue" data-columnTitle="healthDataValue">healthDataValue <i class="fa ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of healthVaultList">
+                                    <td class="text-left">
+                                        <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                    </td>
+                                    <td>
+                                        <a routerLink="/pages/consumer/healthVault/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a (click)="deleteHealthVaultData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>{{row['date']}}</td>
+                                    <td>{{row['healthDataType']}}</td>
+                                    <td>{{row['healthDataValue']}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingHealthVaultRecords}} out of {{totalHealthVaultRecords}} record(s)</div>
+                    <div style="float: right;">
+                        <button (click)="navPrevHealthVaultPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select (change)="healthVaultPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let healthVaultPage of healthVaultPages" value="{{healthVaultPage}}" selected="{{getHealthVaultFormData.pageNo == healthVaultPage ? 'selected' : ''}}">{{healthVaultPage}}</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button (click)="navNextHealthVaultPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Notification">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select (change)="notificationPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getNotificationFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                        </select>                        
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <a routerLink="/pages/consumer/notification/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button (click)="importNotifications($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button (click)="exportNotifications($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button (click)="deleteNotifications($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                    <th>Action</th>
+                                    <th class="thChangeIcon" (click)="filterNotificationColumn($event, 'notificatinType');" id="notificatinType" data-order="ASC" data-columnName="notificatinType" data-columnTitle="notificatinType">notificatinType <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterNotificationColumn($event, 'notificationContent');" id="notificationContent" data-order="ASC" data-columnName="notificationContent" data-columnTitle="notificationContent">notificationContent <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterNotificationColumn($event, 'readStatus');" id="readStatus" data-order="ASC" data-columnName="readStatus" data-columnTitle="readStatus">readStatus <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterNotificationColumn($event, 'link');" id="link" data-order="ASC" data-columnName="link" data-columnTitle="link">link <i class="fa ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of notificationList">
+                                    <td class="text-left">
+                                        <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                    </td>
+                                    <td>
+                                        <a routerLink="/pages/consumer/notification/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a (click)="deleteNotificationData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>{{row['notificatinType']}}</td>
+                                    <td>{{row['notificationContent']}}</td>
+                                    <td>{{row['readStatus']}}</td>
+                                    <td><a href="{{row['link']}}" target="_blank" style="margin: 0; padding: 0;" class="text-info">{{row['link']}}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingNotificationRecords}} out of {{totalNotificationRecords}} record(s)</div>
+                    <div style="float: right;">
+                        <button (click)="navPrevNotificationPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select (change)="notificationPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let notificationPage of notificationPages" value="{{notificationPage}}" selected="{{getNotificationFormData.pageNo == notificationPage ? 'selected' : ''}}">{{notificationPage}}</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button (click)="navNextNotificationPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+        </nb-tabset>
+    </nb-card-body>
+</nb-card>

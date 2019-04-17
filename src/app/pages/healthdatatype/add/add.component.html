@@ -1,0 +1,83 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Add Health Data Type Master</nb-card-header>
+			<nb-card-body>
+                <form class="form-horizontal" name="healthdatatypeAddForm" (ngSubmit)="healthdatatypeAddForm.form.valid && onSubmitHealthDataTypeAddForm(healthdatatypeAddForm)" #healthdatatypeAddForm="ngForm" novalidate>
+                    <fieldset>
+                        <legend></legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTCategory" name="HDTCategory" autocomplete="off" nbInput fullWidth placeholder="Category" [(ngModel)]="healthdatatypeAddForm.form.HDTCategory" required minlength="8" maxlength="25" #HDTCategory="ngModel" pattern="[a-zA-Z]*"/>
+                                        <div *ngIf="HDTCategory.invalid && (HDTCategory.dirty || HDTCategory.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTCategory.hasError('required')">Category is required.</div>
+                                            <div *ngIf="HDTCategory.hasError('minlength')">Category must be at least 8 characters long.</div>
+                                            <div *ngIf="HDTCategory.hasError('maxlength')">Category must not be more than 25 characters long.</div>
+                                            <div *ngIf="HDTCategory.hasError('pattern')">Category is invalid</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub - Category</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTSubCategory" name="HDTSubCategory" autocomplete="off" nbInput fullWidth placeholder="Sub - Category" [(ngModel)]="healthdatatypeAddForm.form.HDTSubCategory" required minlength="10" maxlength="10" pattern="[0-9]*" #HDTSubCategory="ngModel"/>
+                                        <div *ngIf="HDTSubCategory.invalid && (HDTSubCategory.dirty || HDTSubCategory.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTSubCategory.hasError('required')">Sub - Category is required.</div>
+                                            <div *ngIf="HDTSubCategory.hasError('pattern')">Sub - Category is invalid.</div>
+                                            <div *ngIf="HDTSubCategory.hasError('maxlength')">Sub - Category must not be more than 10 characters long.</div>
+                                            <div *ngIf="HDTSubCategory.hasError('minlength')">Sub - Category must be at least 10 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTName" name="HDTName" autocomplete="off" nbInput fullWidth placeholder="Name" [(ngModel)]="healthdatatypeAddForm.form.HDTName" required minlength="4" #HDTName="ngModel"/>
+                                        <div *ngIf="HDTName.invalid && (HDTName.dirty || HDTName.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTName.hasError('required')">Name is required.</div>
+                                            <div *ngIf="HDTName.hasError('minlength')">Name must be at least 4 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <div class="input-group">
+                                        <input type="email" id="HDTDescription" name="HDTDescription" autocomplete="off" email nbInput fullWidth placeholder="Description" [(ngModel)]="healthdatatypeAddForm.form.HDTDescription" required minlength="7" maxlength="50" #HDTDescription="ngModel"/>
+                                        <div *ngIf="HDTDescription.invalid && (HDTDescription.dirty || HDTDescription.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTDescription.hasError('email')">Description is not a valid Email Address.</div>
+                                            <div *ngIf="HDTDescription.hasError('required')">Description is required.</div>
+                                            <div *ngIf="HDTDescription.hasError('minlength')">Description must be at least 7 characters long.</div>
+                                            <div *ngIf="HDTSubCategory.hasError('maxlength')">Sub - Category must not be more than 50 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-sm btn-outline-info" (click)="goBackScript($event);" style="margin-right: 5px;">Back</button>
+                                    <button class="btn btn-sm {{(healthdatatypeAddForm.form.pristine || healthdatatypeAddForm.form.invalid) ? 'btn-outline-secondary disabled' : 'btn-outline-success'}}" [disabled]="healthdatatypeAddForm.form.pristine || healthdatatypeAddForm.form.invalid">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">&nbsp;</div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

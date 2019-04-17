@@ -1,0 +1,1241 @@
+<nb-card>
+    <nb-card-body>
+        <nb-tabset>
+            <nb-tab tabTitle="Customer Information">
+                <div class="col-lg-12">
+
+                    <form class="form-horizontal" name="customerEditForm" (ngSubmit)="customerEditForm.form.valid && customerEditFormSubmit(customerEditForm)" #customerEditForm="ngForm" novalidate>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="First Name" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Last Name" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Phone Number" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Other Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Number 1</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 1" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Number 2</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 2" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email 1</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 1" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email 2</label>
+                                        <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 2" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Website</label>
+                                        <div class="input-group"><input type="url" nbInput fullWidth placeholder="Website" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Description" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registration Date</label>
+                                        <div class="input-group">
+                                            <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                            <nb-datepicker #formpicker></nb-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registration Status</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Registration Status</option>
+                                            <option *ngFor="let registrationStatus of registrationStatuses" value="{{registrationStatus.value}}">{{registrationStatus.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Registered By</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Registered By</option>
+                                            <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Approved By</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Approved By</option>
+                                            <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Address Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Street Address</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Street Address" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Landmark</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Landmark" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="City" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Pin Code</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Pin Code" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">State</option>
+                                            <option *ngFor="let state of states" value="{{state.value}}">{{state.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Country</option>
+                                            <option *ngFor="let country of countries" value="{{country.value}}">{{country.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Bank Details</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Name</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="Account Name" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Number</label>
+                                        <div class="input-group"><input type="number" nbInput fullWidth placeholder="Account Number" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>IFSC Code</label>
+                                        <div class="input-group"><input type="text" nbInput fullWidth placeholder="IFSC Code" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Account Type</label>
+                                        <select class="form-control">
+                                            <option disabled="disabled" value="" selected="selected">Account Type</option>
+                                            <option *ngFor="let accountType of accountTypes" value="{{accountType.value}}">{{accountType.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary pull-right" [disabled]="customerEditForm.form.pristine || customerEditForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">&nbsp;</div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="KYC Document">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <a routerLink="/pages/customer/kyc/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" /></th>
+                                    <th>Action</th>
+                                    <th>fileName <i class="ion-funnel"></i></th>
+                                    <th>fileType <i class="ion-funnel"></i></th>
+                                    <th>filePath <i class="ion-funnel"></i></th>
+                                    <th>verificationStatus <i class="ion-funnel"></i></th>
+                                    <th>verifiedBy <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/customer/kyc/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>File Name - 1</td>
+                                    <td>File Type - 1</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">File Path - 1</a></td>
+                                    <td>VERIFIED</td>
+                                    <td>Verificaton Officer - 1</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/customer/kyc/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>File Name - 2</td>
+                                    <td>File Type - 1</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">File Path - 2</a></td>
+                                    <td>VERIFIED</td>
+                                    <td>Verificaton Officer - 1</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/customer/kyc/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>File Name - 3</td>
+                                    <td>File Type - 1</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">File Path - 3</a></td>
+                                    <td>VERIFIED</td>
+                                    <td>Verificaton Officer - 1</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/customer/kyc/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>File Name - 4</td>
+                                    <td>File Type - 2</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">File Path - 4</a></td>
+                                    <td>VERIFIED</td>
+                                    <td>Verificaton Officer - 3</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <a routerLink="/pages/customer/kyc/manage/edit/1" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;
+                                        <a class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td>File Name - 5</td>
+                                    <td>File Type - 3</td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">File Path - 5</a></td>
+                                    <td>VERIFIED</td>
+                                    <td>Verificaton Officer - 2</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Consumer">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>                       
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>consumerID <i class="ion-funnel"></i></th>
+                                    <th>kitID <i class="ion-funnel"></i></th>
+                                    <th>Name <i class="ion-funnel"></i></th>
+                                    <th>Status <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Consumer Id - 1</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 1</a></td>
+                                    <td>Consumer Name</td>
+                                    <td>ACTIVE</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Consumer Id - 2</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 2</a></td>
+                                    <td>Consumer Name</td>
+                                    <td>ACTIVE</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Consumer Id - 3</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 3</a></td>
+                                    <td>Consumer Name</td>
+                                    <td>ACTIVE</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Consumer Id - 4</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 4</a></td>
+                                    <td>Consumer Name</td>
+                                    <td>ACTIVE</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Consumer Id - 5</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id - 5</a></td>
+                                    <td>Consumer Name</td>
+                                    <td>ACTIVE</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Order">
+                <div class="col-lg-12">                 
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>                       
+                        <span style="float: right;">
+                            <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+                        </span>
+                        <button class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-border table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>orderID <i class="ion-funnel"></i></th>
+                                    <th>kitID <i class="ion-funnel"></i></th>
+                                    <th>packageID <i class="ion-funnel"></i></th>
+                                    <th>insuranceID <i class="ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/order/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Package Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Insurance Id</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/order/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Package Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Insurance Id</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/order/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Package Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Insurance Id</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/order/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Package Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Insurance Id</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a routerLink="/pages/order/manage/edit/1" class="text-info btn-xs" data-toggle="tooltip" title="Manage"><i class="fa fa-cogs"></i></a>
+                                    </td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Order Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Kit Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Package Id</a></td>
+                                    <td><a class="" routerLink="" style="margin: 0; padding: 0;">Insurance Id</a></td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing 5 out of 5 record(s)</div>
+                    <div style="float: right;">
+                        <button class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option>1</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </nb-tab>
+        </nb-tabset>
+    </nb-card-body>
+</nb-card>
+
+
+
+
+<!--
+
+<nb-card>
+    <nb-card-body>
+        <nb-tabset (changeTab)="onChangeTab($event)">
+            <nb-tab tabTitle="Modify Customer Details">
+                <div class="">
+                    <div class="col-sm-12">
+                        <p><small><small>Please fill in the details below as required</small></small></p>
+                        <form class="form-horizontal" name="customerEditForm" (ngSubmit)="customerEditForm.form.valid && customerEditFormSubmit(customerEditForm)" #customerEditForm="ngForm" novalidate>
+                            <fieldset>
+                                <legend></legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Category</option>
+                                                <option *ngFor="let category of categories" value="{{category.value}}">{{category.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Sub Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Sub Category</option>
+                                                <option *ngFor="let subCategory of subCategories" value="{{subCategory.value}}">{{subCategory.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Entity Name</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Entity Name" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Entity Type</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Entity Type</option>
+                                                <option *ngFor="let entityType of entityTypes" value="{{entityType.value}}">{{entityType.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Phone Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Primary Contact</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Name" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Mobile" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Designation</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Designation</option>
+                                                <option *ngFor="let designation of designations" value="{{designation.value}}">{{designation.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Other Details</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Contact Number 1</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 1" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Contact Number 2</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 2" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email 1</label>
+                                            <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 1" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email 2</label>
+                                            <div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 2" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Website</label>
+                                            <div class="input-group"><input type="url" nbInput fullWidth placeholder="Website" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Description" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registration Date</label>
+                                            <div class="input-group">
+                                                <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registration Status</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Registration Status</option>
+                                                <option *ngFor="let registrationStatus of registrationStatuses" value="{{registrationStatus.value}}">{{registrationStatus.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registered By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Registered By</option>
+                                                <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Approved By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Approved By</option>
+                                                <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Address Details</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Street Address</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Street Address" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Landmark</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Landmark" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="City" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Pin Code</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Pin Code" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">State</option>
+                                                <option *ngFor="let state of states" value="{{state.value}}">{{state.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Country</option>
+                                                <option *ngFor="let country of countries" value="{{country.value}}">{{country.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Bank Details</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Account Name</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Account Name" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Account Number</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Account Number" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>IFSC Code</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="IFSC Code" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Account Type</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Account Type</option>
+                                                <option *ngFor="let accountType of accountTypes" value="{{accountType.value}}">{{accountType.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Payment Details</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Prefered Payment Method</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Prefered Payment Method</option>
+                                                <option *ngFor="let preferedPaymentMethod of preferedPaymentMethods" value="{{preferedPaymentMethod.value}}">{{preferedPaymentMethod.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Constitution Of Business</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Constitution Of Business</option>
+                                                <option *ngFor="let constitutionOfBusiness of constitutionOfBusinesses" value="{{constitutionOfBusiness.value}}">{{constitutionOfBusiness.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Payment Term</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Payment Term</option>
+                                                <option *ngFor="let paymentTerm of paymentTerms" value="{{paymentTerm.value}}">{{paymentTerm.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>MSME Status</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">MSME Status</option>
+                                                <option *ngFor="let msmeStatus of msmeStatuses" value="{{msmeStatus.value}}">{{msmeStatus.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>TAX Details</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>VAT</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="VAT" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>CST</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="CST" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>TDS</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="TDS" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Certificate Limit</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Certificate Limit" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>ARN Number</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="ARN Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>TAN</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="TAN" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>GST Registration Number</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="GST Registration Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>GST Registration Status</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">GST Registration Status</option>
+                                                <option *ngFor="let gstRegistrationStatus of gstRegistrationStatuses" value="{{gstRegistrationStatus.value}}">{{gstRegistrationStatus.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Proffessional Id</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Proffessional Id" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary pull-right" [disabled]="customerEditForm.form.pristine || customerEditForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Devices">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeDev($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeDev of dtPageSizesDev" value="{{pageSizeDev.value}}" selected="{{pageSizeDev.value == postDataDev.pageSize ? 'selected' : ''}}">{{pageSizeDev.text}}</option>
+                                </select>
+                                <a routerLink="/pages/device/manage/edit/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                </a>
+                                <button (click)="importCustomersDev($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                </button>
+                                <button (click)="exportCustomersDev($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>                                
+                                <button (click)="deleteCustomersDev($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueDev($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left"><input type="checkbox" id="customerDevHeadCheckBox" (click)="toggleCustomerDevCheckBoxes($event);" /></th>
+                                            <th>Action</th>
+                                            <th class="thChangeIconDev" (click)="filterColumnDev($event, 'tableThNameDev');" id="tableThNameDev" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconDev" (click)="filterColumnDev($event, 'tableThUsernameDev');" id="tableThUsernameDev" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconDev" (click)="filterColumnDev($event, 'tableThEmailDev');" id="tableThEmailDev" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconDev" (click)="filterColumnDev($event, 'tableThPhoneDev');" id="tableThPhoneDev" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconDev" (click)="filterColumnDev($event, 'tableThWebsiteDev');" id="tableThWebsiteDev" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowDev of dtUsersDev">
+                                            <td><input type="checkbox" class="tdCheckBoxes customerDevCheckBoxes" value="{{rowDev.id}}"/></td>
+                                            <td><a routerLink="/pages/device/manage/edit/edit/{{rowDev.id}}" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;&nbsp;<a (click)="deleteCustomerDev($event, rowDev.id);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a></td>
+                                            <td>{{rowDev.name}}</td>
+                                            <td>{{rowDev.username}}</td>
+                                            <td><a href="mailto:{{rowDev.email}}" style="margin: 0; padding: 0;">{{rowDev.email}}</a></td>
+                                            <td>{{rowDev.phone}}</td>
+                                            <td><a href="http://{{rowDev.website}}" style="margin: 0; padding: 0;">{{rowDev.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsDev}} out of {{totalRecordsDev}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevDev($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageDev($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageDev of dtPagesDev" value="{{pageDev}}" selected="{{postDataDev.pageNo == pageDev ? 'selected' : ''}}">{{pageDev}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextDev($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="KYC Documents">
+                <div class="container-fluid">
+                    <div class="hide">
+                        <div class="col-sm-12">
+                            <p><small><small>Please fill in the details below as required</small></small></p>
+                            <form class="form-horizontal" name="customerKYCDocumentEditForm" (ngSubmit)="customerKYCDocumentEditForm.form.valid && customerKYCDocumentEditFormSubmit(customerKYCDocumentEditForm)" #customerKYCDocumentEditForm="ngForm" novalidate>
+                                <fieldset>
+                                    <legend></legend>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Document Path</label>
+                                                <div class="input-group"><input type="file" nbInput fullWidth placeholder="Document Path" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Document Type</label>
+                                                <select class="form-control">
+                                                    <option disabled="disabled" value="" selected="selected">Document Type</option>
+                                                    <option *ngFor="let documentType of documentTypes" value="{{documentType.value}}">{{documentType.text}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Created By</label>
+                                                <select class="form-control" disabled="disabled">
+                                                    <option disabled="disabled" value="" selected="selected">Created By</option>
+                                                    <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Approved By</label>
+                                                <select class="form-control" disabled="disabled">
+                                                    <option disabled="disabled" value="" selected="selected">Approved By</option>
+                                                    <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary" [disabled]="customerKYCDocumentEditForm.form.pristine || customerKYCDocumentEditForm.form.invalid" style="float: right;">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeKYC($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeKYC of dtPageSizesKYC" value="{{pageSizeKYC.value}}" selected="{{pageSizeKYC.value == postDataKYC.pageSize ? 'selected' : ''}}">{{pageSizeKYC.text}}</option>
+                                </select>
+                                <button (click)="importCustomersKYC($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                </button>
+                                <button (click)="exportCustomersKYC($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>                                
+                                <button (click)="deleteCustomersKYC($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueKYC($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left"><input type="checkbox" id="customerKYCHeadCheckBox" (click)="toggleCustomerKYCCheckBoxes($event);" /></th>
+                                            <th>Action</th>
+                                            <th class="thChangeIconKYC" (click)="filterColumnKYC($event, 'tableThNameKYC');" id="tableThNameKYC" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconKYC" (click)="filterColumnKYC($event, 'tableThUsernameKYC');" id="tableThUsernameKYC" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconKYC" (click)="filterColumnKYC($event, 'tableThEmailKYC');" id="tableThEmailKYC" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconKYC" (click)="filterColumnKYC($event, 'tableThPhoneKYC');" id="tableThPhoneKYC" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconKYC" (click)="filterColumnKYC($event, 'tableThWebsiteKYC');" id="tableThWebsiteKYC" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowKYC of dtUsersKYC">
+                                            <td><input type="checkbox" class="tdCheckBoxes customerKYCCheckBoxes" value="{{rowKYC.id}}"/></td>
+                                            <td><a (click)="deleteCustomerKYC($event, rowKYC.id);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a></td>
+                                            <td>{{rowKYC.name}}</td>
+                                            <td>{{rowKYC.username}}</td>
+                                            <td><a href="mailto:{{rowKYC.email}}" style="margin: 0; padding: 0;">{{rowKYC.email}}</a></td>
+                                            <td>{{rowKYC.phone}}</td>
+                                            <td><a href="http://{{rowKYC.website}}" style="margin: 0; padding: 0;">{{rowKYC.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsKYC}} out of {{totalRecordsKYC}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevKYC($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageKYC($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageKYC of dtPagesKYC" value="{{pageKYC}}" selected="{{postDataKYC.pageNo == pageKYC ? 'selected' : ''}}">{{pageKYC}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextKYC($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Services">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeSrv($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeSrv of dtPageSizesSrv" value="{{pageSizeSrv.value}}" selected="{{pageSizeSrv.value == postDataSrv.pageSize ? 'selected' : ''}}">{{pageSizeSrv.text}}</option>
+                                </select>
+                                <a routerLink="/pages/service/manage/edit/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                                </a>
+                                <button (click)="importCustomersSrv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                                </button>
+                                <button (click)="exportCustomersSrv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>                                
+                                <button (click)="deleteCustomersSrv($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-trash"></i>&nbsp;Remove Selected</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueSrv($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left"><input type="checkbox" id="customerSrvHeadCheckBox" (click)="toggleCustomerSrvCheckBoxes($event);" /></th>
+                                            <th>Action</th>
+                                            <th class="thChangeIconSrv" (click)="filterColumnSrv($event, 'tableThNameSrv');" id="tableThNameSrv" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconSrv" (click)="filterColumnSrv($event, 'tableThUsernameSrv');" id="tableThUsernameSrv" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconSrv" (click)="filterColumnSrv($event, 'tableThEmailSrv');" id="tableThEmailSrv" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconSrv" (click)="filterColumnSrv($event, 'tableThPhoneSrv');" id="tableThPhoneSrv" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconSrv" (click)="filterColumnSrv($event, 'tableThWebsiteSrv');" id="tableThWebsiteSrv" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowSrv of dtUsersSrv">
+                                            <td><input type="checkbox" class="tdCheckBoxes customerSrvCheckBoxes" value="{{rowSrv.id}}"/></td>
+                                            <td><a routerLink="/pages/service/manage/edit/edit/{{rowSrv.id}}" class="text-warning btn-xs" data-toggle="tooltip" title="Modify Record"><i class="fa fa-lg ion-edit"></i></a>&nbsp;&nbsp;&nbsp;<a (click)="deleteCustomerSrv($event, rowSrv.id);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a></td>
+                                            <td>{{rowSrv.name}}</td>
+                                            <td>{{rowSrv.username}}</td>
+                                            <td><a href="mailto:{{rowSrv.email}}" style="margin: 0; padding: 0;">{{rowSrv.email}}</a></td>
+                                            <td>{{rowSrv.phone}}</td>
+                                            <td><a href="http://{{rowSrv.website}}" style="margin: 0; padding: 0;">{{rowSrv.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsSrv}} out of {{totalRecordsSrv}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevSrv($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageSrv($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageSrv of dtPagesSrv" value="{{pageSrv}}" selected="{{postDataSrv.pageNo == pageSrv ? 'selected' : ''}}">{{pageSrv}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextSrv($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+            <nb-tab tabTitle="Change Log">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p style="margin-top: 10px;">
+                                <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                                <select (change)="selectPageSizeCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                    <option *ngFor="let pageSizeCL of dtPageSizesCL" value="{{pageSizeCL.value}}" selected="{{pageSizeCL.value == postDataCL.pageSize ? 'selected' : ''}}">{{pageSizeCL.text}}</option>
+                                </select>
+                                <button (click)="exportCustomersCL($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                                    <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                                </button>
+                                <span style="float: right; margin-right: 1.25rem;">
+                                    <input type="text" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" (keyup)="searchValueCL($event);" />
+                                </span>
+                            </p>
+                            <div class="table-responsive">                                
+                                <table class="table table-border table-hover" style="margin: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThNameCL');" id="tableThNameCL" data-order="ASC" data-columnName="name" data-columnTitle="Name">Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThUsernameCL');" id="tableThUsernameCL" data-order="ASC" data-columnName="username" data-columnTitle="User Name">User Name <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThEmailCL');" id="tableThEmailCL" data-order="ASC" data-columnName="email" data-columnTitle="Email Id">Email Id <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThPhoneCL');" id="tableThPhoneCL" data-order="ASC" data-columnName="phone" data-columnTitle="Phone">Phone <i class="ion-funnel"></i></th>
+                                            <th class="thChangeIconCL" (click)="filterColumnCL($event, 'tableThWebsiteCL');" id="tableThWebsiteCL" data-order="ASC" data-columnName="website" data-columnTitle="Website">Website <i class="ion-funnel"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let rowCL of dtUsersCL">
+                                            <td>{{rowCL.name}}</td>
+                                            <td>{{rowCL.username}}</td>
+                                            <td><a href="mailto:{{rowCL.email}}" style="margin: 0; padding: 0;">{{rowCL.email}}</a></td>
+                                            <td>{{rowCL.phone}}</td>
+                                            <td><a href="http://{{rowCL.website}}" style="margin: 0; padding: 0;">{{rowCL.website}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingRecordsCL}} out of {{totalRecordsCL}} record(s)</div>
+                                <div style="float: right;">
+                                    <button (click)="pagePrevCL($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                                    &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                                    <select (change)="selectPageCL($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                                        <option *ngFor="let pageCL of dtPagesCL" value="{{pageCL}}" selected="{{postDataCL.pageNo == pageCL ? 'selected' : ''}}">{{pageCL}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;
+                                    <button (click)="pageNextCL($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-tab>
+        </nb-tabset>
+
+
+
+
+                
+    </nb-card-body>
+</nb-card>
+
+
+-->

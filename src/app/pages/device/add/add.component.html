@@ -1,0 +1,207 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Add Device</nb-card-header>
+			<nb-card-body>
+				<p><small><small>Please fill in the details below as required</small></small></p>
+                        <form class="form-horizontal" name="deviceAddForm" (ngSubmit)="deviceAddForm.form.valid && deviceAddFormSubmit(providerAddForm)" #deviceAddForm="ngForm" novalidate>
+                            <fieldset>
+                                <legend></legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Category</option>
+                                                <option *ngFor="let category of categories" value="{{category.value}}">{{category.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Sub Category</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Sub Category</option>
+                                                <option *ngFor="let subCategory of subCategories" value="{{subCategory.value}}">{{subCategory.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Name</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Name" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Type</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Device Type</option>
+                                                <option *ngFor="let deviceType of deviceTypes" value="{{deviceType.value}}">{{deviceType.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Model Number</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Model Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Make</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Make" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Code</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Code" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Alias</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Alias" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Description</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Description" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Provider</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Device Provider</option>
+                                                <option *ngFor="let deviceProvider of deviceProviders" value="{{deviceProvider.value}}">{{deviceProvider.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Unit Cost</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Device Unit Cost" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Selling Price</label>
+                                            <div class="input-group"><input type="number" nbInput fullWidth placeholder="Device Selling Price" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Weight</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Weight" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Dimension</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Dimension" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Precaution</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Precaution" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Warning</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Warning" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device Stock In Hand</label>
+                                            <div class="input-group"><input type="text" nbInput fullWidth placeholder="Device Stock In Hand" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Device is Active</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Device is Active</option>
+                                                <option *ngFor="let deviceActive of deviceActives" value="{{deviceActive.value}}">{{deviceActive.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registration Date</label>
+                                            <div class="input-group">
+                                                <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" readonly="readonly" />
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Registered By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Registration Officer</option>
+                                                <option *ngFor="let registerationOfficer of registerationOfficers" value="{{registerationOfficer.value}}">{{registerationOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Approval Date</label>
+                                            <div class="input-group">
+                                                <input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Approval Date" readonly="readonly" />
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Approved By</label>
+                                            <select class="form-control">
+                                                <option disabled="disabled" value="" selected="selected">Approval Officer</option>
+                                                <option *ngFor="let approvalOfficer of approvalOfficers" value="{{approvalOfficer.value}}">{{approvalOfficer.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary pull-right" [disabled]="deviceAddForm.form.pristine || deviceAddForm.form.invalid" style="margin-top: 24px;">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

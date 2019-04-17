@@ -1,0 +1,46 @@
+<nb-card>
+	<nb-card-header>Help Me Report Header</nb-card-header>
+	<nb-card-body>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label>Choose Date Range</label>
+					<div class="input-group">
+						<input nbInput fullWidth [nbDatepicker]="rangepicker" placeholder="Choose Date Range" />
+						<nb-rangepicker #rangepicker></nb-rangepicker>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-12 table-responsive">
+				<table datatable class="table table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Gender</th>
+							<th>Age</th>
+							<th>Email Id</th>
+							<th>Address City</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let row of dtUsers">
+							<td>{{row.id}}</td>
+							<td>{{row.firstName}}</td>
+							<td>{{row.lastName}}</td>
+							<td>{{row.gender}}</td>
+							<td>{{row.age}}</td>
+							<td>{{row.email}}</td>
+							<td>{{row.city}}</td>
+						</tr>
+					</tbody>
+					<tfoot></tfoot>
+				</table>
+			</div>
+		</div>
+	</nb-card-body>
+	<nb-card-footer>Help Me Report Footer</nb-card-footer>
+</nb-card>

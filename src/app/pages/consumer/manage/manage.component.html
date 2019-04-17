@@ -1,0 +1,79 @@
+<nb-card accent="info" [nbSpinner]="loading" nbSpinnerStatus="info" nbSpinnerSize="xlarge">
+    <nb-card-header>
+        <label style="padding-top: 0.375rem; padding-left: 1.25rem;">Manage Consumer</label>
+        <span style="float: right; margin-right: 1.25rem;">
+            <input type="text" (keyup)="searchTextChanged($event);" nbInput placeholder="Search in all columns" class="form-control" fieldSize="small" />
+        </span>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p style="margin-top: 5px;">
+                        <label style="margin-top: 0.5rem;">Page Size&nbsp;:&nbsp;</label>
+                        <select (change)="consumerPageSizeChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let pageSize of dtPageSizes" value="{{pageSize['value']}}" selected="{{pageSize['value'] == getConsumerFormData.pageSize ? 'selected' : ''}}">{{pageSize['text']}}</option>
+                        </select>
+                        <a routerLink="/pages/consumer/manage/add" class="btn btn-info btn-xs" data-toggle="tooltip" title="Add New" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-plus"></i></b>
+                        </a>
+                        <button (click)="importConsumers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Import" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-download"></i>&nbsp;Import</b>
+                        </button>
+                        <button (click)="exportConsumers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Export" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-upload"></i>&nbsp;Export</b>
+                        </button>
+                        <button (click)="deleteConsumers($event);" class="btn btn-info btn-xs" data-toggle="tooltip" title="Remove Selected" style="float: right; margin-right: 5px;">
+                            <b style="font-weight: bolder !important;"><i class="fa fa-check-square"></i>&nbsp;<i class="fa fa-lg ion-trash-b"></i>&nbsp;Remove Selected</b>
+                        </button>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-btransaction table-hover" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><input type="checkbox" id="headCheck" (click)="toggleCheckBoxes($event);" /></th>
+                                    <th>Action</th>
+                                    <!--<th class="thChangeIcon" (click)="filterConsumerColumn($event, 'userId');" id="userId" data-order="ASC" data-columnName="userId" data-columnTitle="userId">userId <i class="fa ion-funnel"></i></th>-->
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'username');" id="username" data-order="ASC" data-columnName="username" data-columnTitle="username">username <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'phone');" id="phone" data-order="ASC" data-columnName="phone" data-columnTitle="phone">phone <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'gender');" id="gender" data-order="ASC" data-columnName="gender" data-columnTitle="gender">gender <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'consumerType');" id="consumerType" data-order="ASC" data-columnName="consumerType" data-columnTitle="consumerType">consumerType <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'height');" id="height" data-order="ASC" data-columnName="height" data-columnTitle="height">height <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'weight');" id="weight" data-order="ASC" data-columnName="weight" data-columnTitle="weight">weight <i class="fa ion-funnel"></i></th>
+                                    <th class="thChangeIcon" (click)="filterConsumerColumn($event, 'bloodGroup');" id="bloodGroup" data-order="ASC" data-columnName="bloodGroup" data-columnTitle="bloodGroup">bloodGroup <i class="fa ion-funnel"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of consumerList">
+                                    <td class="text-left">
+                                        <input type="checkbox" class="rowChecks" id="rowCheck_{{row['id']}}" value="{{row['id']}}" />
+                                    </td>
+                                    <td>
+                                        <a routerLink="/pages/consumer/manage/edit/{{row['id']}}" class="text-info btn-xs" data-toggle="tooltip" title="Modify Record or Manage More"><i class="fa fa-cogs"></i></a>&nbsp;&nbsp;
+                                        <a (click)="deleteConsumerData($event, row['id']);" class="text-danger btn-xs" data-toggle="tooltip" title="Remove Record"><i class="fa fa-lg ion-trash-b"></i></a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{row['consumerType']}}</td>
+                                    <td>{{row['height']}}</td>
+                                    <td>{{row['weight']}}</td>
+                                    <td>{{row['bloodGroup']}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: inline-block; margin-top: 5px !important;">Showing {{showingConsumerRecords}} out of {{totalConsumerRecords}} record(s)</div>
+                    <div style="float: right;">
+                        <button (click)="navPrevConsumerPage($event);" class="btn btn-info btn-xs" title="Go to Previous Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-reply"></i></button>
+                        &nbsp;&nbsp; Page No.&nbsp;:&nbsp;
+                        <select (change)="consumerPageChange($event);" class="form-control" style="display: inline;" nbInput fieldSize="small" class="select-xs input-xs">
+                            <option *ngFor="let consumerPage of consumerPages" value="{{consumerPage}}" selected="{{getConsumerFormData.pageNo == consumerPage ? 'selected' : ''}}">{{consumerPage}}</option>
+                        </select>&nbsp;&nbsp;&nbsp;
+                        <button (click)="navNextConsumerPage($event);" class="btn btn-info btn-xs" title="Go to Next Page" style="padding: 3px 5px; cursor: pointer;"><i class="fa fa-2x ion-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body> 
+</nb-card>

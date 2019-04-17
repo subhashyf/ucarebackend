@@ -1,0 +1,426 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Help Me Edit Header</nb-card-header>
+			<nb-card-body>
+				<form class="form-horizontal" name="providerRegistration">
+					<fieldset>
+						<legend>Help Me Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Category</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Category</option>
+										<option *ngFor="let category of categories" value="{{category.value}}">{{category.text}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Sub - Category</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Sub-Category</option>
+										<option *ngFor="let subCategory of subCategories" value="{{subCategory.value}}">{{subCategory.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Entity Name</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Entity Name" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Sub - Type</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Sub-Type</option>
+										<option *ngFor="let subType of subTypes" value="{{subType.value}}">{{subType.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Phone Number</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Phone Number" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Email</label>
+									<div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Primary Contact</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Name</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Name" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Email</label>
+									<div class="input-group"><input type="email" nbInput fullWidth placeholder="Email" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Mobile</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Mobile" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Designation</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Designation</option>
+										<option *ngFor="let designation of designations" value="{{designation.value}}">{{designation.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Other Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Contact Number 1</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 1" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Contact Number 2</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Contact Number 2" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Email 1</label>
+									<div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 1" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Email 2</label>
+									<div class="input-group"><input type="email" nbInput fullWidth placeholder="Email 2" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Website</label>
+									<div class="input-group"><input type="url" nbInput fullWidth placeholder="Website" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Description</label>
+									<div class="input-group"><textarea nbInput fullWidth placeholder="Description"></textarea></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Registration Date</label>
+									<div class="input-group">
+										<input nbInput fullWidth [nbDatepicker]="formpicker" placeholder="Registration Date" />
+										<nb-datepicker #formpicker></nb-datepicker>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Registration Status</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Registration Status</option>
+										<option *ngFor="let registrationStatus of registrationStatuses" value="{{registrationStatus.value}}">{{registrationStatus.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Registered By</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Loading... Registered By" value="{{registeredBy}}" readonly="readonly" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Approved By</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Loading... Approved By" value="{{approvedBy}}" readonly="readonly" /></div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>KYP Documents</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Document Path</label>
+									<div class="input-group"><input type="file" nbInput fullWidth placeholder="Document Path" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Document Type</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Document Type</option>
+										<option *ngFor="let documentType of documentTypes" value="{{documentType.value}}">{{documentType.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Created By</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Loading... Created By"  value="{{createdBy}}" readonly="readonly" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Approved By</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Loading... Approved By" value="{{approvedBy}}" readonly="readonly" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<button class="btn btn-info" (click)="validateHelpMeRegistrationKYPDocument($event);">Add</button>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Address Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Street Address</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Street Address" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Landmark</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Landmark" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>City</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="City" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Pin Code</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Pin Code" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>State</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">State</option>
+										<option *ngFor="let state of states" value="{{state.value}}">{{state.text}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Country</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Country</option>
+										<option *ngFor="let country of countries" value="{{country.value}}">{{country.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Bank Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Account Name</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Account Name" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Account Number</label>
+									<div class="input-group"><input type="number" nbInput fullWidth placeholder="Account Number" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>IFSC Code</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="IFSC Code" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Account Type</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Account Type</option>
+										<option *ngFor="let accountType of accountTypes" value="{{accountType.value}}">{{accountType.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Payment Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Prefered Payment Method</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Prefered Payment Method</option>
+										<option *ngFor="let preferedPaymentMethod of preferedPaymentMethods" value="{{preferedPaymentMethod.value}}">{{preferedPaymentMethod.text}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Constitution Of Business</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Constitution Of Business</option>
+										<option *ngFor="let constitutionOfBusiness of constitutionOfBusinesses" value="{{constitutionOfBusiness.value}}">{{constitutionOfBusiness.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Payment Term</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">Payment Term</option>
+										<option *ngFor="let paymentTerm of paymentTerms" value="{{paymentTerm.value}}">{{paymentTerm.text}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>MSME Status</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">MSME Status</option>
+										<option *ngFor="let msmeStatus of msmeStatuses" value="{{msmeStatus.value}}">{{msmeStatus.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>TAX Details</legend>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>VAT</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="VAT" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>CST</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="CST" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>TDS</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="TDS" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Certificate Limit</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Certificate Limit" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>ARN Number</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="ARN Number" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>TAN</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="TAN" /></div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>GST Registration Number</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="GST Registration Number" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>GST Registration Status</label>
+									<select class="form-control">
+										<option disabled="disabled" value="" selected="selected">GST Registration Status</option>
+										<option *ngFor="let gstRegistrationStatus of gstRegistrationStatuses" value="{{gstRegistrationStatus.value}}">{{gstRegistrationStatus.text}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Proffessional Id</label>
+									<div class="input-group"><input type="text" nbInput fullWidth placeholder="Proffessional Id" /></div>
+								</div>
+							</div>
+							<div class="col-sm-6"></div>
+						</div>
+						<div class="row">
+							<button class="btn btn-primary" (click)="validateHelpMeRegistration($event);">Submit</button>
+						</div>
+					</fieldset>
+
+				</form>
+			</nb-card-body>
+			<nb-card-footer>Help Me Edit Footer</nb-card-footer>
+		</nb-card>
+	</div>
+</div>

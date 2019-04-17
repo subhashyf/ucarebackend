@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-md-12">
+		<nb-card>
+			<nb-card-header>Edit Health Data Type Master</nb-card-header>
+			<nb-card-body>
+                <form class="form-horizontal" name="healthdatatypeEditForm" (ngSubmit)="healthdatatypeEditForm.form.valid && onSubmitHealthDataTypeEditForm(healthdatatypeEditForm)" #healthdatatypeEditForm="ngForm" novalidate>
+                    <fieldset>
+                        <legend></legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTCategory" name="HDTCategory" autocomplete="off" nbInput fullWidth placeholder="Category" [(ngModel)]="HDTCategory" required minlength="4" #HDTMCategory="ngModel" />
+                                        <div *ngIf="HDTMCategory.invalid && (HDTMCategory.dirty || HDTMCategory.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTMCategory.hasError('required')">Category is required.</div>
+                                            <div *ngIf="HDTMCategory.hasError('minlength')">Category must be at least 4 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub - Category</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTSubCategory" name="HDTSubCategory" autocomplete="off" nbInput fullWidth placeholder="Sub - Category" [(ngModel)]="HDTSubCategory" required minlength="4" #HDTMSubCategory="ngModel" />
+                                        <div *ngIf="HDTMSubCategory.invalid && (HDTMSubCategory.dirty || HDTMSubCategory.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTMSubCategory.hasError('required')">Category is required.</div>
+                                            <div *ngIf="HDTMSubCategory.hasError('minlength')">Category must be at least 4 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTName" name="HDTName" autocomplete="off" nbInput fullWidth placeholder="Name" [(ngModel)]="HDTName" required minlength="4" #HDTMName="ngModel" />
+                                        <div *ngIf="HDTMName.invalid && (HDTMName.dirty || HDTMName.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTMName.hasError('required')">Category is required.</div>
+                                            <div *ngIf="HDTMName.hasError('minlength')">Category must be at least 4 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <div class="input-group">
+                                        <input type="text" id="HDTDescription" name="HDTDescription" autocomplete="off" nbInput fullWidth placeholder="Description" [(ngModel)]="HDTDescription" required minlength="4" #HDTMDescription="ngModel" />
+                                        <div *ngIf="HDTMDescription.invalid && (HDTMDescription.dirty || HDTMDescription.touched)" class="alert alert-danger">
+                                            <div *ngIf="HDTMDescription.hasError('required')">Category is required.</div>
+                                            <div *ngIf="HDTMDescription.hasError('minlength')">Category must be at least 4 characters long.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-sm btn-outline-info" (click)="goBackScript($event);" style="margin-right: 5px;">Back</button>
+                                    <button class="btn btn-sm {{(healthdatatypeEditForm.form.pristine || healthdatatypeEditForm.form.invalid) ? 'btn-outline-secondary disabled' : 'btn-outline-success'}}" type="submit" [disabled]="healthdatatypeEditForm.form.pristine || healthdatatypeEditForm.form.invalid">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label></label>
+                                    <div class="input-group"><input type="hidden" nbInput fullWidth placeholder="Category" [(ngModel)]="HDTId" name="HDTId" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

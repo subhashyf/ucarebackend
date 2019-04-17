@@ -46,7 +46,8 @@ export class LoginComponent implements OnInit {
     		localStorage.setItem("token", data['jwt']);
 			localStorage.setItem("user", JSON.stringify((data['user'])));
 			this._service.getCount('users-permissions/roles/' + (data["user"]["role"]["_id"])).subscribe(dataRole => {
-    			localStorage.setItem("permission", JSON.stringify((dataRole["role"]["permissions"])));
+    			localStorage.setItem("permissions", JSON.stringify((dataRole["role"]["permissions"])));
+    			localStorage.setItem("permission", JSON.stringify((dataRole["role"]["permissions"]["application"]["controllers"])));
     			localStorage.setItem("role", JSON.stringify((dataRole["role"])));
 	    		setTimeout(function() { window.location.href = './#/pages/'; }, 500);
 			}, error => {

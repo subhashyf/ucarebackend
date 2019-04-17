@@ -27,19 +27,20 @@ export class PagesComponent implements OnInit {
 
 	ngOnInit() {
     	if (!this._service.checkToken()) this._router.navigate(['pages/umac/login']);
-		this.getMenu();
+		//this.getMenu();
 	}
 
 	getMenu()
 	{
 		var role = (JSON.parse(localStorage.getItem("role")));
+		if ((role == null) || (typeof(role) == 'undefined') || (role.name == null) || (typeof(role.name) == 'undefined')) role = { name: "" };
 		switch(role.name.toString().toLowerCase().trim())
 		{
 			case "administrator": this.menu = ALL_MENU_ITEMS; break;
 			case "authenticated": this.menu = ALL_MENU_ITEMS; break;
 			case "public": this.menu = PUBLIC_MENU_ITEMS; break;
 			case "consumerlist": this.menu = OPERATOR_MENU_ITEMS; break;
-			default: this.menu = null;
+			default: this.menu = [];
 		}
 		/*
 		for (var key in permissions.application.controllers) {
